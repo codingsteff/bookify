@@ -8,17 +8,17 @@ namespace Bookify.Domain.Bookings;
 public sealed class Booking : Entity
 {
     private Booking(
-           Guid id,
-           Guid apartmentId,
-           Guid userId,
-           DateRange duration,
-           Money priceForPeriod,
-           Money cleaningFee,
-           Money amenitiesUpCharge,
-           Money totalPrice,
-           BookingStatus status,
-           DateTime createdOnUtc)
-           : base(id)
+        Guid id,
+        Guid apartmentId,
+        Guid userId,
+        DateRange duration,
+        Money priceForPeriod,
+        Money cleaningFee,
+        Money amenitiesUpCharge,
+        Money totalPrice,
+        BookingStatus status,
+        DateTime createdOnUtc)
+        : base(id)
     {
         ApartmentId = apartmentId;
         UserId = userId;
@@ -92,7 +92,7 @@ public sealed class Booking : Entity
         return Result.Success();
     }
 
-    public Result Rejected(DateTime utcNow)
+    public Result Reject(DateTime utcNow)
     {
         if (Status != BookingStatus.Reserved)
         {
@@ -117,7 +117,7 @@ public sealed class Booking : Entity
         Status = BookingStatus.Completed;
         CompletedOnUtc = utcNow;
 
-        RaiseDomainEvent(new BookingConfirmedDomainEvent(Id));
+        RaiseDomainEvent(new BookingCompletedDomainEvent(Id));
 
         return Result.Success();
     }
