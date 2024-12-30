@@ -2,7 +2,7 @@ using MediatR;
 
 namespace Bookify.Domain.Abstractions;
 
-// INotification is for Publish/Subscribe pattern of MediatR
+// MediatR INotification is for Publish/Subscribe pattern
 public interface IDomainEvent : INotification
 {
 }
