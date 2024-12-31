@@ -1,3 +1,4 @@
+using Bookify.Application.Exceptions;
 using Bookify.Domain.Abstractions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -24,12 +25,20 @@ public sealed class ApplicationDbContext : DbContext, IUnitOfWork
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        var result = await base.SaveChangesAsync(cancellationToken);
-        // TODO: problematic if the event handler throws an exception, the db transaction is already committed
-        // TODO: Trsansactional Outbox pattern to ensure atomicity
-        await PublishDomainEventsAsync();
+        try
+        {
+            var result = await base.SaveChangesAsync(cancellationToken);
+            // TODO: problematic if the event handler throws an exception, the db transaction is already committed
+            // TODO: Trsansactional Outbox pattern to ensure atomicity
+            await PublishDomainEventsAsync();
 
-        return result;
+            return result;
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            // ConcurrencyException instead of DbUpdateConcurrencyException can go up to the Application layer (hide ef core in application layer)
+            throw new ConcurrencyException("Concurrency exception occured", ex);
+        }
     }
 
     private async Task PublishDomainEventsAsync()
