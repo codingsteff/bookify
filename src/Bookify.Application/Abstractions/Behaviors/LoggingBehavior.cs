@@ -5,7 +5,7 @@ using MediatR;
 namespace Bookify.Application.Abstractions.Behaviors;
 public class LoggingBehavior<TRequest, TResponse>
     : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : IBaseCommand // Loggingn only for commands, queries should be as fast as possible
+    where TRequest : IBaseCommand // Logging only for commands, queries should be as fast as possible
 {
     private readonly ILogger<TRequest> _logger;
 
