@@ -1,3 +1,20 @@
 {
-	"image": "mcr.microsoft.com/devcontainers/dotnet:1-9.0-bookworm"
+	"name": "Bookify",
+	"dockerComposeFile": [
+		"compose.yaml"
+	],
+	"service": "api",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"terminal.integrated.cwd": "/workspace/src"
+			},
+			"extensions": [
+				"ms-dotnettools.csdevkit"
+			]
+		}
+	},
+	"forwardPorts": []
 }

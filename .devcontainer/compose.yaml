@@ -1,0 +1,11 @@
+version: '3'
+services:
+  api:
+    container_name: bookify-api-dev
+    build:
+      context: .
+    volumes:
+      # Mount the root folder to:
+      - ..:/workspace:cached
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
