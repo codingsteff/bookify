@@ -1,16 +1,11 @@
 {
-	"name": "Bookify",
 	"dockerComposeFile": [
 		"compose.yaml"
 	],
 	"service": "api",
-	"workspaceFolder": "/workspace",
+	"workspaceFolder": "/bookify",
 	"customizations": {
 		"vscode": {
-			"settings": {
-				"terminal.integrated.defaultProfile.linux": "bash",
-				"terminal.integrated.cwd": "/workspace/src"
-			},
 			"extensions": [
 				"ms-dotnettools.csdevkit"
 			]

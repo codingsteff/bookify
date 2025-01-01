@@ -6,6 +6,6 @@ services:
       context: .
     volumes:
       # Mount the root folder to:
-      - ..:/workspace:cached
+      - ..:/bookify:cached
     stdin_open: true # docker run -i
     tty: true # docker run -t
