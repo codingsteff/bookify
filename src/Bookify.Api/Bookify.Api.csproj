@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../Bookify.Application/Bookify.Application.csproj" />
+    <ProjectReference Include="../Bookify.Infrastructure/Bookify.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
