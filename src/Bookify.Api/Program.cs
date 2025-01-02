@@ -21,5 +21,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseCustomExceptionHandler();
 app.MapControllers();
+app.MapRoot();
 
 app.Run();
