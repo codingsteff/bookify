@@ -9,3 +9,17 @@ services:
       - ..:/bookify:cached
     stdin_open: true # docker run -i
     tty: true # docker run -t
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    container_name: bookify-db
+    environment:
+      - POSTGRES_DB=bookify
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/database:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
