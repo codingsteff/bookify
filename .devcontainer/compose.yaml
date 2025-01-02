@@ -10,11 +10,11 @@ services:
     stdin_open: true # docker run -i
     tty: true # docker run -t
     depends_on:
-      - db
+      - postgres
 
-  db:
+  postgres:
     image: postgres:latest
-    container_name: bookify-db
+    container_name: bookify-postgres
     environment:
       - POSTGRES_DB=bookify
       - POSTGRES_USER=postgres
@@ -23,3 +23,14 @@ services:
       - ./.containers/database:/var/lib/postgresql/data
     ports:
       - 5432:5432
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: bookify-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'user@user.io'
+      PGADMIN_DEFAULT_PASSWORD: 'hunter2'
+    depends_on:
+      - postgres
+    ports:
+      - "8080:80"

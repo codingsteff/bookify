@@ -1,5 +1,4 @@
 # bookify
-
 Pragmatic Clean Architecture application
 * [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 * Separation of concerns
@@ -8,6 +7,8 @@ Pragmatic Clean Architecture application
 * Explicit dependencies
 * Single responsibility principle
 
+
+
 ## TODO
 * [ ] Finish the course
 * [ ] Get Rid of Warning: 'Overriding HTTP_PORTS '8080' and HTTPS_PORTS
@@ -15,6 +16,8 @@ Pragmatic Clean Architecture application
 * [ ] Add Aggregates and AggregateRoots
 * [ ] SignalR communication
 * [ ] Caching
+
+
 
 ## Start
 Start the DevContainer
@@ -27,7 +30,9 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
 
 ### Database
 * Database will auto created and seeded with data on application start in `Development` environment
+* [pgAdmin](http://localhost:8080) *user@user.io, hunter2*
 * Create new migration: `dotnet ef migrations add -p src/Bookify.Infrastructure -s src/Bookify.Api <Migration_Name>`
+
 
 
 ## Layers
