@@ -5,6 +5,9 @@ public abstract class Entity
     {
         Id = id;
     }
+
+    protected Entity() { }
+
     public Guid Id { get; init; } // init is used to set the value only once
 
     private readonly List<IDomainEvent> _domainEvents = new();
