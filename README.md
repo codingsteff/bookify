@@ -73,3 +73,4 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
   * don't expose Commands directly, use DTOs (Request)
   * MediatoR handles Commands and Queries (loose coupling)
   * Dependency setup for all layers
+  * Middlewares for Cross-Cutting Concerns (Logging)

@@ -19,6 +19,7 @@ if (app.Environment.IsDevelopment())
     // app.SeedData();
 }
 
+app.UseCustomExceptionHandler();
 app.MapControllers();
 
 app.Run();
