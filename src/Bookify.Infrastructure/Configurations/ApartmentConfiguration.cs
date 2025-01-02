@@ -33,6 +33,6 @@ internal sealed class ApartmentConfiguration : IEntityTypeConfiguration<Apartmen
                 .HasConversion(currency => currency.Code, code => Currency.FromCode(code));
         });
 
-        builder.Property<int>("Version").IsRowVersion(); // PostgreSQL optimistic concurrency with system column xmin
+        builder.Property<uint>("Version").IsRowVersion(); // PostgreSQL optimistic concurrency with system column xmin
     }
 }
