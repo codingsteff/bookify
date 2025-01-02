@@ -46,14 +46,14 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
   * Behavior-, State-Transitions-Methods and Commands (raise DomainEvents)
 * Value Objects (Immutable, no identity, in C# with record) e.g. Money, Address, DateRange
 * Domain Services (Business Logic don't fit to Entity, can call Repositories)
-* Domain Events (when something happens in the domain, can be handled by other parts of the system via MediatoR.Contracts)
+* Domain Events (when something happens in the domain, can be handled by other parts of the system via MediatR.Contracts)
 
 ### Application Layer
 * Orchestrates the domain
 * Business Logic not fitting to Domain
 * Use Cases (Driver of the application, taking Domain Model and telling them what to do)
 * Application Services (use Repositories, DomainServices)
-* CQRS (Command Query Responsibility Segregation), Loose Coupling with MediatoR
+* CQRS (Command Query Responsibility Segregation), Loose Coupling with MediatR
 * Cross-Cutting Concerns/Pipeline behaviors (Logging, Validation)
 
 > Pragmatic: use of Dapper for access ReadModels, normaly don't directly use external libs
@@ -71,6 +71,6 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
   * Request/Response
   * Controllers and Endpoints creates Commands and Queries
   * don't expose Commands directly, use DTOs (Request)
-  * MediatoR handles Commands and Queries (loose coupling)
+  * MediatR handles Commands and Queries (loose coupling)
   * Dependency setup for all layers
   * Middlewares for Cross-Cutting Concerns (Logging)
