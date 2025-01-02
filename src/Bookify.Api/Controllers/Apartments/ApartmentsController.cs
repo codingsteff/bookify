@@ -24,7 +24,7 @@ public class ApartmentsController : ControllerBase
         var query = new SearchApartmentsQuery(startDate, endDate);
 
         var result = await _sender.Send(query, cancellationToken);
-        
-        return Ok(result);
+
+        return result.IsSuccess ? Ok(result.Value) : BadRequest(result.Error);
     }
 }
