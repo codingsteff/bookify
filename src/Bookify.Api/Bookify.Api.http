@@ -1,6 +1,26 @@
-@Bookify.Api_HostAddress = http://localhost:5225
+@Api_HostAddress = http://localhost:5225
 
-GET {{Bookify.Api_HostAddress}}/
+### API
+GET {{Api_HostAddress}}/
 Accept: application/json
 
-###
+### Apartments search
+GET {{Api_HostAddress}}/api/apartments?startDate=2025-01-25&endDate=2025-01-27
+Accept: application/json
+
+### Apartments search INVALID (end date before start date)
+GET {{Api_HostAddress}}/api/apartments?startDate=2025-01-25&endDate=2025-01-20
+Accept: application/json
+
+### Booking reserve INVALID (unknown user)
+POST {{Api_HostAddress}}/api/bookings
+Content-Type: application/json
+
+{
+  "ApartmentId": "071f6ebc-3ef7-4e0f-b92f-1471f4a306e5",
+  "UserId": "987e6543-e21c-12d3-a456-426614174111",
+  "StartDate": "2025-01-25",
+  "EndDate": "2025-01-27"
+}
+
+### 
