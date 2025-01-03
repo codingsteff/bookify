@@ -1,0 +1,22 @@
+@HostAddress = http://keycloak:8080/realms/bookify
+
+@Client = bookify-auth-client
+@Secret = 3E3yvXaYppoYBF3Ir6DgtEzADKKzSurZ
+
+### Metadata
+GET {{HostAddress}}/.well-known/openid-configuration
+Accept: application/json
+
+### Obtain tokens
+@User = user@user.io
+@Password = hunter2
+POST {{HostAddress}}//protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id={{Client}}&grant_type=password&client_secret={{Secret}}&scope=openid&username={{User}}&password={{Password}}
+
+### Obtain Admin tokens
+POST {{HostAddress}}//protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=bookify-admin-client&grant_type=client_credentials&client_secret=UZDmbNxWmV4TlpaCRcju6pMRsyuV3er1&scope=openid

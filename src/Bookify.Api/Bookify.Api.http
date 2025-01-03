@@ -1,5 +1,7 @@
 @HostAddress = http://localhost:5225
 
+@UserId = 535aabe7-9e9d-437a-83ee-b41434529c7c
+
 ### API
 GET {{HostAddress}}/
 Accept: application/json
