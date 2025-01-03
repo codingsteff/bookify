@@ -24,6 +24,18 @@ services:
     ports:
       - 5432:5432
 
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: bookify-idp
+    command: start-dev --import-realm
+    environment:
+      - KC_BOOTSTRAP_ADMIN_USERNAME=user@user.io
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=hunter2
+    volumes:
+      - ./.files/bookify-realm-export.json:/opt/keycloak/data/import/realm.json
+    ports:
+      - 8081:8080
+      
   pgadmin:
     image: dpage/pgadmin4
     container_name: bookify-pgadmin
@@ -33,4 +45,5 @@ services:
     depends_on:
       - postgres
     ports:
-      - "8080:80"
+      - "8089:80"
+

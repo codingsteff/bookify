@@ -60,9 +60,10 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
 
 ### Infrastructure Layer
 * External concerns (Database, Message Brokers, Identity Providers, File Systems, ...)
-* Implmentations of abstractions
+* Implementations of abstractions
 * Persistence (EF Core and PostgresSQL)
 * Publishing Domain Events (UnitOfWork when saving Entities)
+* Identity Provider: Keycloak
 
 ### Presentation Layer
 * Entry Point to the system
