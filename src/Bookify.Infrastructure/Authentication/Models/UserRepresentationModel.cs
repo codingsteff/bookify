@@ -35,7 +35,7 @@ public sealed class UserRepresentationModel
             Username = user.Email.Value,
             Enabled = true,
             EmailVerified = true,
-            CreatedTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+            CreatedTimestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
             Attributes = new Dictionary<string, List<string>>(),
             RequiredActions = Array.Empty<string>()
         };
