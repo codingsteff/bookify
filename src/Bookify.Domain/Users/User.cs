@@ -16,10 +16,9 @@ public class User : Entity
     private User() { }
 
     public FirstName FirstName { get; private set; }
-
     public LastName LastName { get; private set; }
-
     public Email Email { get; private set; }
+    public string IdentityId { get; private set; } = string.Empty; // ID from Identity Provider
 
     // Factory method: 
     // 1. hide the constructor to not expose implementation details. for example: Id creation
@@ -32,6 +31,11 @@ public class User : Entity
         user.RaiseDomainEvent(new UserCreatedDomainEvent(user.Id));
 
         return user;
+    }
+
+    public void SetIdentityId(string identityId)
+    {
+        IdentityId = identityId;
     }
 
 }
