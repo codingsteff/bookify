@@ -19,8 +19,9 @@ if (app.Environment.IsDevelopment())
     // app.SeedData();
 }
 
+app.UseRootRouteOk();
 app.UseCustomExceptionHandler();
+
 app.MapControllers();
-app.MapRoot();
 
 app.Run();

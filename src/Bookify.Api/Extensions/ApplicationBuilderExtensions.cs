@@ -20,12 +20,9 @@ public static class ApplicationBuilderExtensions
         app.UseMiddleware<ExceptionHandlingMiddleware>();
     }
 
-    public static void MapRoot(this IApplicationBuilder app)
+    public static IApplicationBuilder UseRootRouteOk(this IApplicationBuilder app)
     {
-        app.UseRouting();
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapGet("/", () => Results.Ok());
-        });
+        return app.UseMiddleware<RootRouteMiddleware>();
     }
+
 }
