@@ -1,5 +1,9 @@
 @HostAddress = http://localhost:5225
 
+@UserIdSteff = beb28bb5-caac-4cf6-bdf3-db7485575c20
+@AccessToken = insert-access-token-here
+
+
 ### API
 GET {{HostAddress}}/
 Accept: application/json
@@ -7,6 +11,7 @@ Accept: application/json
 ### Apartments search
 GET {{HostAddress}}/api/apartments?startDate=2025-01-25&endDate=2025-01-27
 Accept: application/json
+Authorization: Bearer {{AccessToken}}
 
 ### Apartments search INVALID (end date before start date)
 GET {{HostAddress}}/api/apartments?startDate=2025-01-25&endDate=2025-01-20
@@ -34,8 +39,13 @@ Content-Type: application/json
   "password": "12345"
 }
 
-###
+### User login
+POST {{HostAddress}}/api/users/login
+Content-Type: application/json
 
-@UserIdSteff = beb28bb5-caac-4cf6-bdf3-db7485575c20
+{
+  "email": "steff@user.io",
+  "password": "12345"
+}
 
 ### 
