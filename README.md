@@ -16,6 +16,7 @@ Pragmatic Clean Architecture application
 * [ ] Add Aggregates and AggregateRoots
 * [ ] SignalR communication
 * [ ] Caching
+* [ ] Use EF Core RawSql with Unmapped Types as [Alternative to Dapper](https://www.youtube.com/watch?v=0ArU_C0gPdA&list=WL&index=53)
 
 
 
