@@ -22,6 +22,9 @@ if (app.Environment.IsDevelopment())
 app.UseRootRouteOk();
 app.UseCustomExceptionHandler();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();

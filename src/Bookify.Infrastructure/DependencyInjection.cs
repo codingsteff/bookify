@@ -5,6 +5,7 @@ using Bookify.Domain.Abstractions;
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Bookings;
 using Bookify.Domain.Users;
+using Bookify.Infrastructure.Authentication;
 using Bookify.Infrastructure.Clock;
 using Bookify.Infrastructure.Data;
 using Bookify.Infrastructure.Email;
@@ -18,14 +19,31 @@ namespace Bookify.Infrastructure;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructure(
-        this IServiceCollection services,
-        IConfiguration configuration)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-
         services.AddTransient<IDateTimeProvider, DateTimeProvider>();
         services.AddTransient<IEmailService, EmailService>();
 
+        AddPersitence(services, configuration);
+        AddAuthentication(services, configuration);
+
+        return services;
+    }
+
+    private static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
+    {
+        services
+            .AddAuthentication() // JwtBearerDefaults.AuthenticationScheme) it's not necessary anymore in .NET 8
+            .AddJwtBearer();
+
+        services.Configure<AuthenticationOptions>(configuration.GetSection("Authentication"));
+        services.ConfigureOptions<JwtBearerOptionsSetup>();
+
+        return services;
+    }
+
+    private static IServiceCollection AddPersitence(this IServiceCollection services, IConfiguration configuration)
+    {
         var connectionString = configuration.GetConnectionString("Database") ??
                               throw new ArgumentNullException(nameof(configuration));
 
