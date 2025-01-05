@@ -1,6 +1,8 @@
+using Bookify.Application.Abstractions.Authentication;
 using Bookify.Application.Abstractions.Clock;
 using Bookify.Application.Abstractions.Data;
 using Bookify.Application.Abstractions.Email;
+using Bookify.Application.Authentication;
 using Bookify.Domain.Abstractions;
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Bookings;
@@ -14,6 +16,7 @@ using Dapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace Bookify.Infrastructure;
 
@@ -26,6 +29,7 @@ public static class DependencyInjection
 
         AddPersitence(services, configuration);
         AddAuthentication(services, configuration);
+        AddKeycloak(services, configuration);
 
         return services;
     }
@@ -38,6 +42,21 @@ public static class DependencyInjection
 
         services.Configure<AuthenticationOptions>(configuration.GetSection("Authentication"));
         services.ConfigureOptions<JwtBearerOptionsSetup>();
+
+        return services;
+    }
+
+    private static IServiceCollection AddKeycloak(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.Configure<KeycloakOptions>(configuration.GetSection("Keycloak"));
+        services.AddTransient<AdminAuthorizationDelegatingHandler>();
+
+        services.AddHttpClient<IAuthenticationService, AuthenticationService>((ServiceProvider, httpClient) =>
+            {
+                var keycloakOptions = ServiceProvider.GetRequiredService<IOptions<KeycloakOptions>>().Value;
+                httpClient.BaseAddress = new Uri(keycloakOptions.AdminUrl);
+            })
+            .AddHttpMessageHandler<AdminAuthorizationDelegatingHandler>();
 
         return services;
     }
