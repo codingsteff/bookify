@@ -1,7 +1,5 @@
 @HostAddress = http://localhost:5225
 
-@UserId = 535aabe7-9e9d-437a-83ee-b41434529c7c
-
 ### API
 GET {{HostAddress}}/
 Accept: application/json
@@ -24,5 +22,18 @@ Content-Type: application/json
   "StartDate": "2025-01-25",
   "EndDate": "2025-01-27"
 }
+
+### User register
+POST {{HostAddress}}/api/users/register
+Content-Type: application/json
+
+{
+  "email": "steff@user.io",
+  "firstName": "steff",
+  "lastName": "user",
+  "password": "12345"
+}
+
+@UserIdSteff = beb28bb5-caac-4cf6-bdf3-db7485575c20
 
 ### 
