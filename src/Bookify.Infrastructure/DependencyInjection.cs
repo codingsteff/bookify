@@ -30,6 +30,7 @@ public static class DependencyInjection
         AddPersitence(services, configuration);
         AddAuthentication(services, configuration);
         AddKeycloak(services, configuration);
+        AddAuthorization(services, configuration);
 
         return services;
     }
@@ -63,6 +64,14 @@ public static class DependencyInjection
                 var keycloakOptions = ServiceProvider.GetRequiredService<IOptions<KeycloakOptions>>().Value;
                 httpClient.BaseAddress = new Uri(keycloakOptions.TokenUrl);
             });
+
+        return services;
+    }
+
+    private static IServiceCollection AddAuthorization(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddHttpContextAccessor();
+        services.AddScoped<IUserContext, UserContext>();
 
         return services;
     }
