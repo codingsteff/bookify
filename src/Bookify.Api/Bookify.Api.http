@@ -48,4 +48,9 @@ Content-Type: application/json
   "password": "12345"
 }
 
+### User current
+GET {{HostAddress}}/api/users/me
+Content-Type: application/json
+Authorization: Bearer {{AccessToken}}
+
 ### 
