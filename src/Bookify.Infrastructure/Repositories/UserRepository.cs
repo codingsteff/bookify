@@ -8,4 +8,14 @@ internal sealed class UserRepository : Repository<User>, IUserRepository
         : base(dbContext)
     {
     }
+
+    override public void Add(User user)
+    {
+        foreach(var role in user.Roles)
+        {
+            // Tell ef core that the role is already in the database and it should not be inserted
+            DbContext.Attach(role); 
+        }
+        base.Add(user);
+    }
 }

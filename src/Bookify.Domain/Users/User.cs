@@ -5,6 +5,9 @@ namespace Bookify.Domain.Users;
 
 public class User : Entity
 {
+    // encapsulate role in the user entity (kind of aggregate)
+    private readonly List<Role> _roles = new();
+
     private User(Guid id, FirstName firstName, LastName lastName, Email email)
         : base(id)
     {
@@ -19,6 +22,7 @@ public class User : Entity
     public LastName LastName { get; private set; }
     public Email Email { get; private set; }
     public string IdentityId { get; private set; } = string.Empty; // ID from Identity Provider
+    public IReadOnlyCollection<Role> Roles => _roles.AsReadOnly();
 
     // Factory method: 
     // 1. hide the constructor to not expose implementation details. for example: Id creation
@@ -29,6 +33,8 @@ public class User : Entity
         var user = new User(Guid.NewGuid(), firstName, lastName, email);
 
         user.RaiseDomainEvent(new UserCreatedDomainEvent(user.Id));
+
+        user._roles.Add(Role.Registered);
 
         return user;
     }
