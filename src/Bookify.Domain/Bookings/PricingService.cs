@@ -32,7 +32,7 @@ public class PricingService
                 currency);
         }
 
-        var totalPrice = Money.Zero();
+        var totalPrice = Money.Zero(currency);
         totalPrice += priceForPeriod;
         if (!apartment.CleaningFee.IsZero())
         {
