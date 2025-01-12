@@ -1,6 +1,8 @@
 @HostAddress = http://localhost:5225
 
 @UserIdSteff = beb28bb5-caac-4cf6-bdf3-db7485575c20
+@BookingIdForSteff = 469c471b-8881-4aa3-9f1b-cb205f3f8c08
+
 @AccessToken = insert-access-token-here
 
 
@@ -17,13 +19,19 @@ Authorization: Bearer {{AccessToken}}
 GET {{HostAddress}}/api/apartments?startDate=2025-01-25&endDate=2025-01-20
 Accept: application/json
 
-### Booking reserve INVALID (unknown user)
+### Booking get
+GET {{HostAddress}}/api/bookings/{{BookingIdForSteff}}
+Authorization: Bearer {{AccessToken}}
+Content-Type: application/json
+
+### Booking reserve
 POST {{HostAddress}}/api/bookings
+Authorization: Bearer {{AccessToken}}
 Content-Type: application/json
 
 {
   "ApartmentId": "071f6ebc-3ef7-4e0f-b92f-1471f4a306e5",
-  "UserId": "987e6543-e21c-12d3-a456-426614174111",
+  "UserId": "{{UserIdSteff}}",
   "StartDate": "2025-01-25",
   "EndDate": "2025-01-27"
 }
@@ -33,7 +41,7 @@ POST {{HostAddress}}/api/users/register
 Content-Type: application/json
 
 {
-  "email": "steff@user.io",
+  "email": "steff3@user.io",
   "firstName": "steff",
   "lastName": "user",
   "password": "12345"
