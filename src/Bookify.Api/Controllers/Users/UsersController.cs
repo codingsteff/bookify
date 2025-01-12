@@ -19,7 +19,7 @@ public class UsersController : ControllerBase
         _sender = sender;
     }
 
-    [Authorize]
+    [Authorize(Roles = Roles.Registered)]
     [HttpGet("me")]
     public async Task<IActionResult> GetLoggedInUser(CancellationToken cancellationToken)
     {

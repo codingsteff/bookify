@@ -9,6 +9,7 @@ using Bookify.Domain.Bookings;
 using Bookify.Domain.Reviews;
 using Bookify.Domain.Users;
 using Bookify.Infrastructure.Authentication;
+using Bookify.Infrastructure.Authorization;
 using Bookify.Infrastructure.Clock;
 using Bookify.Infrastructure.Data;
 using Bookify.Infrastructure.Email;
@@ -73,6 +74,9 @@ public static class DependencyInjection
     {
         services.AddHttpContextAccessor();
         services.AddScoped<IUserContext, UserContext>();
+
+        services.AddScoped<AuthorizationService>();
+        services.AddTransient<Microsoft.AspNetCore.Authentication.IClaimsTransformation, CustomClaimsTransformation>();
 
         return services;
     }
