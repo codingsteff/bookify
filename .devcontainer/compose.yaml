@@ -35,6 +35,15 @@ services:
       - ./.files/bookify-realm-export.json:/opt/keycloak/data/import/realm.json
     ports:
       - 8081:8080
+
+  seq:
+    image: datalust/seq:latest
+    container_name: bookify-seq
+    environment:
+      ACCEPT_EULA: Y
+    ports:
+      - 5341:5341
+      - 8082:80
       
   pgadmin:
     image: dpage/pgadmin4

@@ -20,6 +20,11 @@ public static class ApplicationBuilderExtensions
         app.UseMiddleware<ExceptionHandlingMiddleware>();
     }
 
+    public static void UseRequestContextLogging(this IApplicationBuilder app)
+    {
+        app.UseMiddleware<RequestContextLoggingMiddleware>();
+    }
+
     public static IApplicationBuilder UseRootRouteOk(this IApplicationBuilder app)
     {
         return app.UseMiddleware<RootRouteMiddleware>();
