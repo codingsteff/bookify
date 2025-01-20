@@ -44,6 +44,13 @@ services:
     ports:
       - 5341:5341
       - 8082:80
+
+  redis:
+    image: redis:latest
+    container_name: bookify-redis
+    restart: always
+    ports:
+      - 6379:6379
       
   pgadmin:
     image: dpage/pgadmin4
