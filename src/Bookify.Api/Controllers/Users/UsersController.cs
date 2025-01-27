@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using Bookify.Api.Controllers.Users;
 using Bookify.Application.Users.GetLoggedInUser;
 using Bookify.Application.Users.LogInUser;
@@ -10,7 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace Bookify.Api.Controllers.Apartments;
 
 [ApiController]
-[Route("api/[controller]")]
+[ApiVersion(ApiVersions.V1, Deprecated = true)]
+[ApiVersion(ApiVersions.V2)]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class UsersController : ControllerBase
 {
     private readonly ISender _sender;
@@ -22,7 +25,8 @@ public class UsersController : ControllerBase
 
     [HasPermission(Permissions.UsersRead)]
     [HttpGet("me")]
-    public async Task<IActionResult> GetLoggedInUser(CancellationToken cancellationToken)
+    [MapToApiVersion(ApiVersions.V1)]
+    public async Task<IActionResult> GetLoggedInUserV1(CancellationToken cancellationToken)
     {
         var query = new GetLoggedInUserQuery();
 
@@ -31,6 +35,17 @@ public class UsersController : ControllerBase
         return Ok(result.Value);
     }
 
+    [HasPermission(Permissions.UsersRead)]
+    [HttpGet("me")]
+    [MapToApiVersion(ApiVersions.V2)]
+    public async Task<IActionResult> GetLoggedInUser(CancellationToken cancellationToken)
+    {
+        var query = new GetLoggedInUserQuery();
+
+        var result = await _sender.Send(query, cancellationToken);
+
+        return Ok(result.Value);
+    }
 
     [AllowAnonymous]
     [HttpPost("register")]
