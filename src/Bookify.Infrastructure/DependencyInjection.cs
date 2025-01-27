@@ -41,7 +41,7 @@ public static class DependencyInjection
         return services;
     }
 
-    private static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
+    private static void AddAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         services
             .AddAuthentication() // JwtBearerDefaults.AuthenticationScheme) it's not necessary anymore in .NET 8
@@ -49,11 +49,9 @@ public static class DependencyInjection
 
         services.Configure<AuthenticationOptions>(configuration.GetSection("Authentication"));
         services.ConfigureOptions<JwtBearerOptionsSetup>();
-
-        return services;
     }
 
-    private static IServiceCollection AddKeycloak(this IServiceCollection services, IConfiguration configuration)
+    private static void AddKeycloak(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<KeycloakOptions>(configuration.GetSection("Keycloak"));
         services.AddTransient<AdminAuthorizationDelegatingHandler>();
@@ -70,11 +68,9 @@ public static class DependencyInjection
                 var keycloakOptions = ServiceProvider.GetRequiredService<IOptions<KeycloakOptions>>().Value;
                 httpClient.BaseAddress = new Uri(keycloakOptions.TokenUrl);
             });
-
-        return services;
     }
 
-    private static IServiceCollection AddAuthorization(this IServiceCollection services, IConfiguration configuration)
+    private static void AddAuthorization(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddHttpContextAccessor();
         services.AddScoped<IUserContext, UserContext>();
@@ -84,11 +80,9 @@ public static class DependencyInjection
 
         services.AddTransient<Microsoft.AspNetCore.Authorization.IAuthorizationHandler, PermissionAuthorizationHandler>();
         services.AddTransient<Microsoft.AspNetCore.Authorization.IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
-
-        return services;
     }
 
-    private static IServiceCollection AddPersitence(this IServiceCollection services, IConfiguration configuration)
+    private static void AddPersitence(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("Database") ??
                               throw new ArgumentNullException(nameof(configuration));
@@ -108,29 +102,23 @@ public static class DependencyInjection
 
         services.AddSingleton<ISqlConnectionFactory>(_ => new SqlConnectionFactory(connectionString));
         SqlMapper.AddTypeHandler(new DateOnlyTypeHandler()); // Register custom Dapper type handler for DateOnly conversion
-
-        return services;
     }
 
-    private static IServiceCollection AddCaching(this IServiceCollection services, IConfiguration configuration)
+    private static void AddCaching(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("Cache") ??
                               throw new ArgumentNullException(nameof(configuration));
 
         services.AddStackExchangeRedisCache(options => options.Configuration = connectionString);
         services.AddSingleton<ICacheService, CacheService>();
-
-        return services;
     }
 
-    private static IServiceCollection AddHealthChecks(this IServiceCollection services, IConfiguration configuration)
+    private static void AddHealthChecks(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddHealthChecks()
             .AddNpgSql(configuration.GetConnectionString("Database")!)
             .AddRedis(configuration.GetConnectionString("Cache")!)
             .AddUrlGroup(new Uri(configuration["Keycloak:BaseUrl"]!), HttpMethod.Get, name: "keycloak");
-
-        return services;
     }
 
 }
