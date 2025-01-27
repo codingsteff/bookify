@@ -10,6 +10,11 @@
 GET {{HostAddress}}/
 Accept: application/json
 
+### Health check
+GET {{HostAddress}}/health
+Accept: application/json
+
+
 ### Apartments search
 GET {{HostAddress}}/api/apartments?startDate=2025-01-25&endDate=2025-01-27
 Accept: application/json
