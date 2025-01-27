@@ -8,26 +8,19 @@
 
 ### API
 GET {{HostAddress}}/
-Accept: application/json
 
 ### Health check
 GET {{HostAddress}}/health
-Accept: application/json
-
 
 ### Apartments search
 GET {{HostAddress}}/api/apartments?startDate=2025-01-25&endDate=2025-01-27
-Accept: application/json
-Authorization: Bearer {{AccessToken}}
 
 ### Apartments search INVALID (end date before start date)
 GET {{HostAddress}}/api/apartments?startDate=2025-01-25&endDate=2025-01-20
-Accept: application/json
 
 ### Booking get
 GET {{HostAddress}}/api/bookings/{{BookingIdForSteff}}
 Authorization: Bearer {{AccessToken}}
-Content-Type: application/json
 
 ### Booking reserve
 POST {{HostAddress}}/api/bookings
