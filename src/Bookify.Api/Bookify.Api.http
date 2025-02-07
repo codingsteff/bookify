@@ -3,9 +3,6 @@
 @UserIdSteff = beb28bb5-caac-4cf6-bdf3-db7485575c20
 @BookingIdForSteff = 469c471b-8881-4aa3-9f1b-cb205f3f8c08
 
-@AccessToken = eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI0TC12bGt5N1lnXzVzVm5Pa0E5ajNGcUFROXd6UEtseWhYZldaLUJ6RkdnIn0.eyJleHAiOjE3Mzc5ODkyMjIsImlhdCI6MTczNzk4NTYyMiwianRpIjoiZDY0YmEyN2ItMTJhMC00MDM2LTg2NzYtN2M4MDU2YjBhNzY5IiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgwODAvcmVhbG1zL2Jvb2tpZnkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiODk0NDg2M2MtMGMxMi00ZmZkLTk2YzctYzQ3YmY3ZmYzNDQ1IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYm9va2lmeS1hdXRoLWNsaWVudCIsInNpZCI6IjZjNzU5NzFkLWRhZDItNDI1Yy1iOTQxLTM4YjcxMGFkMDQ4MSIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtYm9va2lmeSJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6InN0ZWZmIHVzZXIiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzdGVmZkB1c2VyLmlvIiwiZ2l2ZW5fbmFtZSI6InN0ZWZmIiwiZmFtaWx5X25hbWUiOiJ1c2VyIiwiZW1haWwiOiJzdGVmZkB1c2VyLmlvIn0.eaQLGUbOP_lR6-57cZOnmGA4d7_5LmVd8iAT2g8kb_asdYBpDMtXagLVx8fiPZLcbNNEiypvv8-hfvyVhRTr17Z54_cVZciPTvbCz07eQ4xABbZ1io68A-MRH4y7SVnd0j9AraB1adqWdQDHtAvfH32E2NfFuauK1B2kLjCzsCW-LwmtghiFoMoV3FCV3YasYl_rgpFWeTxc0kJE1TWvzy-X0vsWh6N4DZtIVr0GNub2jCI8NB8Vy4ORVBPzjo63blIg46zdkpgYFpn3F9qL6taiGQ8Nexwhs8Wnv1a3nH_axWrTZ6NYMJEKfABqnlPDJdBhvfxh0rQpnK_zVmzZqQ
-
-
 ### API
 GET {{HostAddress}}/
 
@@ -18,13 +15,23 @@ GET {{HostAddress}}/api/v1/apartments?startDate=2025-01-25&endDate=2025-01-27
 ### Apartments search INVALID (end date before start date)
 GET {{HostAddress}}/api/v1/apartments?startDate=2025-01-25&endDate=2025-01-20
 
+### User login
+# @name token
+POST {{HostAddress}}/api/v2/users/login
+Content-Type: application/json
+
+{
+  "email": "steff@user.io",
+  "password": "12345"
+}
+
 ### Booking get
 GET {{HostAddress}}/api/v1/bookings/{{BookingIdForSteff}}
-Authorization: Bearer {{AccessToken}}
+Authorization: Bearer {{token.response.body.$.accessToken}}
 
 ### Booking reserve
 POST {{HostAddress}}/api/v1/bookings
-Authorization: Bearer {{AccessToken}}
+Authorization: Bearer {{token.response.body.$.accessToken}}
 Content-Type: application/json
 
 {
@@ -45,17 +52,8 @@ Content-Type: application/json
   "password": "12345"
 }
 
-### User login
-POST {{HostAddress}}/api/v2/users/login
-Content-Type: application/json
-
-{
-  "email": "steff@user.io",
-  "password": "12345"
-}
-
 ### User current
 GET {{HostAddress}}/api/v2/users/me
-Authorization: Bearer {{AccessToken}}
+Authorization: Bearer {{token.response.body.$.accessToken}}
 
 ### 
