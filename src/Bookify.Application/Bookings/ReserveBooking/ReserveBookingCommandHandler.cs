@@ -73,7 +73,7 @@ internal sealed class ReserveBookingCommandHandler : ICommandHandler<ReserveBook
         }
         catch (ConcurrencyException)
         {
-            // Race condition resolved with optimistic concurrency control (row version, see configuration)
+            // Race condition resolved with optimistic concurrency control (row version, see configuration in apartment entity)
             return Result.Failure<Guid>(BookingErrors.Overlap);
         }
     }
