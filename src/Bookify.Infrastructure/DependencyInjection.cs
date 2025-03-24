@@ -16,12 +16,14 @@ using Bookify.Infrastructure.Caching;
 using Bookify.Infrastructure.Clock;
 using Bookify.Infrastructure.Data;
 using Bookify.Infrastructure.Email;
+using Bookify.Infrastructure.Outbox;
 using Bookify.Infrastructure.Repositories;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Quartz;
 
 namespace Bookify.Infrastructure;
 
@@ -39,6 +41,7 @@ public static class DependencyInjection
         AddCaching(services, configuration);
         AddHealthChecks(services, configuration);
         AddApiVersioning(services);
+        AddBackgroundJobs(services, configuration);
 
         return services;
     }
@@ -133,6 +136,14 @@ public static class DependencyInjection
                 options.ApiVersionReader = new UrlSegmentApiVersionReader();
             })
             .AddMvc();
+    }
+
+    private static void AddBackgroundJobs(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.Configure<OutboxOptions>(configuration.GetSection("Outbox"));
+        services.AddQuartz();
+        services.AddQuartzHostedService(options => options.WaitForJobsToComplete = true); // Wait for jobs to complete before shutting down
+        services.ConfigureOptions<OutboxProcessorJobSetup>();
     }
 
 }

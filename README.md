@@ -15,8 +15,9 @@ Pragmatic Clean Architecture application
 * [ ] Make 'dotnet run' work
 * [ ] Add Aggregates and AggregateRoots
 * [ ] SignalR communication
-* [ ] Caching
+* [x] Caching
 * [ ] Use EF Core RawSql with Unmapped Types as [Alternative to Dapper](https://www.youtube.com/watch?v=0ArU_C0gPdA&list=WL&index=53)
+* [ ] Message Brokers (RabbitMQ)
 
 
 
@@ -63,7 +64,7 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
 * External concerns (Database, Message Brokers, Identity Providers, File Systems, ...)
 * Implementations of abstractions
 * Persistence (EF Core and PostgresSQL)
-* Publishing Domain Events (UnitOfWork when saving Entities)
+* Transactional Outbox Message Pattern for reliable DomainEvents in distributed systems (UnitOfWork when saving Entities)
 * Identity Provider: Keycloak
 
 ### Presentation Layer
