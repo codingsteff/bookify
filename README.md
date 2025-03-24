@@ -10,15 +10,14 @@ Pragmatic Clean Architecture application
 
 
 ## TODO
-* [ ] Finish the course
-* [ ] Get Rid of Warning: 'Overriding HTTP_PORTS '8080' and HTTPS_PORTS
-* [ ] Make 'dotnet run' work
-* [ ] Add Aggregates and AggregateRoots
-* [ ] SignalR communication
-* [x] Caching
-* [ ] Use EF Core RawSql with Unmapped Types as [Alternative to Dapper](https://www.youtube.com/watch?v=0ArU_C0gPdA&list=WL&index=53)
-* [ ] Message Brokers (RabbitMQ)
-
+[ ] Finish the course  
+[ ] Get Rid of Warning: 'Overriding HTTP_PORTS '8080' and HTTPS_PORTS  
+[ ] Make 'dotnet run' work  
+[ ] Add Aggregates and AggregateRoots  
+[ ] SignalR communication  
+[ ] Change Caching to [HybridCache](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)  
+[ ] Use EF Core RawSql with Unmapped Types as [Alternative to Dapper](https://www.youtube.com/watch?v=0ArU_C0gPdA&list=WL&index=53)  
+[ ] Message Brokers (RabbitMQ)  
 
 
 ## Start
