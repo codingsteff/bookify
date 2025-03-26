@@ -1,17 +1,19 @@
+using System.Text.Json;
 using Bookify.Application.Abstractions.Clock;
 using Bookify.Application.Exceptions;
+using Bookify.Infrastructure.Data;
 using Bookify.Domain.Abstractions;
 using Bookify.Infrastructure.Outbox;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
+
 
 namespace Bookify.Infrastructure;
 
 public sealed class ApplicationDbContext : DbContext, IUnitOfWork
 {
-    private static readonly JsonSerializerSettings JsonSerializerSettings = new()
+    private static readonly JsonSerializerOptions JsonSerializerOptions = new()
     {
-        TypeNameHandling = TypeNameHandling.All
+        Converters = {new JsonPolymorphicConverter<IDomainEvent>()}
     };
 
     private readonly IDateTimeProvider _dateTimeProvider;
@@ -60,7 +62,7 @@ public sealed class ApplicationDbContext : DbContext, IUnitOfWork
                 Guid.NewGuid(),
                 _dateTimeProvider.UtcNow,
                 domainEvent.GetType().Name,
-                JsonConvert.SerializeObject(domainEvent, JsonSerializerSettings))
+                JsonSerializer.Serialize(domainEvent, JsonSerializerOptions))
             )
             .ToList();
 

@@ -1,12 +1,13 @@
 using System.Data;
+using System.Text.Json;
 using Bookify.Application.Abstractions.Clock;
 using Bookify.Application.Abstractions.Data;
 using Bookify.Domain.Abstractions;
+using Bookify.Infrastructure.Data;
 using Dapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using Quartz;
 
 namespace Bookify.Infrastructure.Outbox;
@@ -14,9 +15,9 @@ namespace Bookify.Infrastructure.Outbox;
 [DisallowConcurrentExecution] // ensures that only one instance of the job is running at a time
 internal sealed class OutboxProcessorJob : IJob
 {
-    private static readonly JsonSerializerSettings JsonSerializerSettings = new()
+    private static readonly JsonSerializerOptions JsonSerializerOptions = new()
     {
-        TypeNameHandling = TypeNameHandling.All
+        Converters = {new JsonPolymorphicConverter<IDomainEvent>()}
     };
 
     private readonly ISqlConnectionFactory _sqlConnectionFactory;
@@ -54,7 +55,7 @@ internal sealed class OutboxProcessorJob : IJob
 
             try
             {
-                var domainEvent = JsonConvert.DeserializeObject<IDomainEvent>(outboxMessage.Content, JsonSerializerSettings)!;
+                var domainEvent = JsonSerializer.Deserialize<IDomainEvent>(outboxMessage.Content, JsonSerializerOptions)!;
 
                 await _publisher.Publish(domainEvent, context.CancellationToken); // Triggers the respective domain event handlers (in Application layer)
             }
