@@ -35,7 +35,7 @@ Authorization: Bearer {{token.response.body.$.accessToken}}
 Content-Type: application/json
 
 {
-  "ApartmentId": "071f6ebc-3ef7-4e0f-b92f-1471f4a306e5",
+  "ApartmentId": "504cee53-a44e-4479-a0d2-5828c8763ddc",
   "UserId": "{{UserIdSteff}}",
   "StartDate": "2025-01-25",
   "EndDate": "2025-01-27"

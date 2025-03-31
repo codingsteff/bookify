@@ -1,4 +1,5 @@
 using Bookify.Api.Extensions;
+using Bookify.Api.Endpoints.Bookings;
 using Bookify.Application;
 using Bookify.Infrastructure;
 using HealthChecks.UI.Client;
@@ -35,6 +36,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+var apiVersionSet = app.CreateApiVersionSet();
+
+var routeGroupBuilder = app.MapGroup("api/v{version:apiVersion}").WithApiVersionSet(apiVersionSet);
+
+routeGroupBuilder.MapBookingsEndpoints();
 
 app.MapHealthChecks("/health", new HealthCheckOptions
 {
