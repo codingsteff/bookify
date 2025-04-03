@@ -11,8 +11,9 @@ Pragmatic Clean Architecture application
 
 ## TODO
 [ ] Finish the course  
-[ ] Migrate all Controllers to Minimal APIs-Endpoints
-[ ] Get Rid of Warning: 'Overriding HTTP_PORTS '8080' and HTTPS_PORTS  
+[ ] Migrate all Controllers to Minimal APIs-Endpoints  
+[ ] Get rid of MediatR
+[ ] Get rid of Warning: 'Overriding HTTP_PORTS '8080' and HTTPS_PORTS
 [ ] Make 'dotnet run' work  
 [ ] Add Aggregates and AggregateRoots  
 [ ] SignalR communication  
