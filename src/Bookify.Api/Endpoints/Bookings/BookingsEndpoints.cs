@@ -1,6 +1,8 @@
 using Bookify.Application.Bookings.GetBooking;
 using Bookify.Application.Bookings.ReserveBooking;
+using Bookify.Domain.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Bookify.Api.Endpoints.Bookings;
 
@@ -18,16 +20,16 @@ public static class BookingsEndpoints
         return builder;
     }
 
-    public static async Task<IResult> GetBooking(Guid id, ISender sender, CancellationToken cancellationToken)
+    public static async Task<Results<Ok<BookingResponse>, NotFound>> GetBooking(Guid id, ISender sender, CancellationToken cancellationToken)
     {
         var query = new GetBookingQuery(id);
 
         var result = await sender.Send(query, cancellationToken);
 
-        return result.IsSuccess ? Results.Ok(result.Value) : Results.NotFound();
+        return result.IsSuccess ? TypedResults.Ok(result.Value) : TypedResults.NotFound();
     }
 
-    public static async Task<IResult> ReserveBooking(
+    public static async Task<Results<CreatedAtRoute<Guid>, BadRequest<Error>>> ReserveBooking(
         ReserveBookingRequest request,
         ISender sender,
         CancellationToken cancellationToken)
@@ -42,9 +44,9 @@ public static class BookingsEndpoints
 
         if (result.IsFailure)
         {
-            return Results.BadRequest(result.Error);
+            return TypedResults.BadRequest(result.Error);
         }
 
-        return Results.CreatedAtRoute(nameof(GetBooking), new { id = result.Value }, result.Value);
+        return TypedResults.CreatedAtRoute(result.Value, nameof(GetBooking), new { id = result.Value });
     }
 }
