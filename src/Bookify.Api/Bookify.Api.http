@@ -1,4 +1,4 @@
-@HostAddress = http://localhost:5225
+@HostAddress = http://localhost:8080
 
 @UserIdSteff = beb28bb5-caac-4cf6-bdf3-db7485575c20
 @BookingIdForSteff = 469c471b-8881-4aa3-9f1b-cb205f3f8c08

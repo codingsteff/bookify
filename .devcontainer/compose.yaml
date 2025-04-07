@@ -9,6 +9,9 @@ services:
       - ..:/bookify:cached
     stdin_open: true # docker run -i
     tty: true # docker run -t
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
     depends_on:
       - postgres
 
