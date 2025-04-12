@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Bookify.Api/Bookify.Api.csproj" />
+    <Project Path="src/Bookify.Application/Bookify.Application.csproj" />
+    <Project Path="src/Bookify.Domain/Bookify.Domain.csproj" />
+    <Project Path="src/Bookify.Infrastructure/Bookify.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj" />
+  </Folder>
+</Solution>
