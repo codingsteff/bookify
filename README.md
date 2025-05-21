@@ -11,7 +11,7 @@ Pragmatic Clean Architecture application
 
 ## TODO
 [ ] Finish the course  
-[ ] Better Endpoints? https://youtu.be/VKc88NWf4lw?t=720
+[ ] Better Endpoints? https://youtu.be/VKc88NWf4lw?t=720  
 [ ] Migrate all Controllers to Minimal APIs-Endpoints  
 [ ] Get rid of MediatR 
 [ ] Add Aggregates and AggregateRoots  
