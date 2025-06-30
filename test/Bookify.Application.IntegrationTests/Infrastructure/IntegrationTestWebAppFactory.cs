@@ -65,7 +65,6 @@ public class IntegrationTestWebAppFactory : WebApplicationFactory<Program>, IAsy
 
     public async ValueTask InitializeAsync()
     {
-        //Seed data could be done here, however I'm using the app.SeedData(); inside Program.cs
         await _dbContainer.StartAsync();
         await _redisContainer.StartAsync();
         await _keycloakContainer.StartAsync();
