@@ -4,6 +4,10 @@
 	],
 	"service": "api",
 	"workspaceFolder": "/bookify",
+	"features": {
+		// for TestContainers
+		"ghcr.io/devcontainers/features/docker-in-docker:1": {}
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
