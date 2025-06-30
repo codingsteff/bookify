@@ -14,6 +14,11 @@ public static class SeedDataExtension
         var sqlConnectionFactory = scope.ServiceProvider.GetRequiredService<ISqlConnectionFactory>();
         using var connection = sqlConnectionFactory.CreateConnection();
 
+        // check if apartments are already seeded
+        var count = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM public.apartments");
+        if (count > 0)
+            return;
+
         var faker = new Faker();
 
         List<object> apartments = new();
