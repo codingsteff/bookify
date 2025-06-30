@@ -6,6 +6,7 @@
     <Project Path="src/Bookify.Infrastructure/Bookify.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/test/">
+    <Project Path="test/Bookify.Application.IntegrationTests/Bookify.Application.IntegrationTests.csproj" />
     <Project Path="test/Bookify.Application.UnitTests/Bookify.Application.UnitTests.csproj" />
     <Project Path="test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj" />
   </Folder>

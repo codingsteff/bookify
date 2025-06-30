@@ -49,3 +49,6 @@ app.MapHealthChecks("/health", new HealthCheckOptions
 });
 
 app.Run();
+
+// This class is only used for integration testing
+public partial class Program;
