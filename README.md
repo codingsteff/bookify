@@ -12,16 +12,17 @@ Pragmatic Clean Architecture application
 
 
 ## TODO
-[ ] Finish the course  
 [ ] Resolve warning CS8618: Non-nullable properties  
 [ ] Complete the test job (MTP all test-projects) in the CI/CD pipeline  
+[ ] Move DDD Abstractions to SharedKernel (check template from Milan)  
 [ ] Better Endpoints? https://youtu.be/VKc88NWf4lw?t=720  
-[ ] Migrate all Controllers to Minimal APIs-Endpoints  
+[ ] Migrate all Controllers to Minimal APIs-Endpoints (check template from Milan)  
 [ ] Get rid of MediatR 
 [ ] Add Aggregates and AggregateRoots  
 [ ] SignalR communication  
 [ ] Change Caching to [HybridCache](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)  
 [ ] Use EF Core RawSql with Unmapped Types as [Alternative to Dapper](https://www.youtube.com/watch?v=0ArU_C0gPdA&list=WL&index=53)  
+    https://www.courses.milanjovanovic.tech/courses/pragmatic-clean-architecture/lectures/56680685  
 [ ] Message Brokers (RabbitMQ)  
 
 
