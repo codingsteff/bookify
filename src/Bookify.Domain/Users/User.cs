@@ -16,8 +16,6 @@ public class User : Entity
         Email = email;
     }
 
-    private User() { }
-
     public FirstName FirstName { get; private set; }
     public LastName LastName { get; private set; }
     public Email Email { get; private set; }
@@ -43,5 +41,8 @@ public class User : Entity
     {
         IdentityId = identityId;
     }
+
+#pragma warning disable CS8618 // Non-nullable warning, but required for EF Core
+    private User() { }
 
 }

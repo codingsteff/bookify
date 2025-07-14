@@ -24,8 +24,6 @@ public sealed class Apartment : Entity
         Amenities = amenities;
     }
 
-    private Apartment() { }
-
     public Name Name { get; private set; }
     public Description Description { get; private set; }
     public Address Address { get; private set; }
@@ -33,4 +31,7 @@ public sealed class Apartment : Entity
     public Money CleaningFee { get; private set; }
     public DateTime? LastBookedOnUtc { get; internal set; }
     public List<Amenity> Amenities { get; private set; } = new();
+
+#pragma warning disable CS8618 // Non-nullable warning, but required for EF Core
+    private Apartment() { }
 }

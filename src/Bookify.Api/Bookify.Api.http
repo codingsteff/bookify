@@ -35,7 +35,7 @@ Authorization: Bearer {{token.response.body.$.accessToken}}
 Content-Type: application/json
 
 {
-  "ApartmentId": "504cee53-a44e-4479-a0d2-5828c8763ddc",
+  "ApartmentId": "24a29cc4-32cd-47c0-a29b-30fd89f49e4e",
   "UserId": "{{UserIdSteff}}",
   "StartDate": "2025-01-25",
   "EndDate": "2025-01-27"
@@ -46,7 +46,7 @@ POST {{HostAddress}}/api/v2/users/register
 Content-Type: application/json
 
 {
-  "email": "steff3@user.io",
+  "email": "steff@user.io",
   "firstName": "steff",
   "lastName": "user",
   "password": "12345"
