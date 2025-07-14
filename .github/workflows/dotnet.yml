@@ -43,5 +43,10 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: build-artifacts
+        path: .
+    - name: List directory structure
+      run: find . -type f -name "*.dll" | sort
+    - name: Restore dependencies
+      run: dotnet restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --verbosity normal
