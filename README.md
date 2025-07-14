@@ -1,4 +1,6 @@
 # bookify
+[![.NET](https://github.com/codingsteff/bookify/actions/workflows/dotnet.yml/badge.svg)](https://github.com/codingsteff/bookify/actions/workflows/dotnet.yml)
+
 Pragmatic Clean Architecture application
 * [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 * Separation of concerns
