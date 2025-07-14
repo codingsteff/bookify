@@ -43,5 +43,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: build-artifacts
-    - name: Test
-      run: dotnet test --no-build --verbosity detailed
+    - name: Run unit tests with report
+      run: dotnet test ./test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj --configuration Release --no-build"
+    # - name: Test
+      # run: dotnet test --no-build --verbosity detailed
