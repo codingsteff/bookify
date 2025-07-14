@@ -16,7 +16,7 @@ public static class DependencyInjection
             configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
             configuration.AddOpenBehavior(typeof(QueryCachingBehavior<,>));
         });
-        services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly); // Register all validators
+        services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly, includeInternalTypes: true); // Register all validators
 
         services.AddTransient<PricingService>();
 
