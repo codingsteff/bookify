@@ -50,6 +50,6 @@ jobs:
       with:
         name: build-artifacts
     - name: Run unit tests with report
-      run: dotnet test ./test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj --configuration Release --no-build --verbosity detailed
+      run: dotnet test ./test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj --configuration Release --no-build --verbosity detailed -p:TestingPlatformCaptureOutput=false
     # - name: Test
       # run: dotnet test --no-build --verbosity detailed
