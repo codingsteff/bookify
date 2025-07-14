@@ -78,7 +78,7 @@ public class UsersController : ControllerBase
 
         if (result.IsFailure)
         {
-            return BadRequest(result.Error);
+            return Unauthorized(result.Error);
         }
 
         return Ok(result.Value);
