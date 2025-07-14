@@ -40,10 +40,4 @@
       </Content>
   </ItemGroup>
 
-  <ItemGroup>
-     <None Update="..\..\.devcontainer\.files\bookify-realm-export.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
