@@ -13,7 +13,6 @@ Pragmatic Clean Architecture application
 
 ## TODO
 [ ] Resolve warning CS8618: Non-nullable properties  
-[ ] Complete the test job (MTP all test-projects) in the CI/CD pipeline  
 [ ] Move DDD Abstractions to SharedKernel (check template from Milan)  
 [ ] Better Endpoints? https://youtu.be/VKc88NWf4lw?t=720  
 [ ] Migrate all Controllers to Minimal APIs-Endpoints (check template from Milan)  

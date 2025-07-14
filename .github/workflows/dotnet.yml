@@ -34,7 +34,6 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
-    - name: Run TEST
-      run: dotnet test test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj
-    # - name: Test
-      # run: dotnet test --no-build --verbosity detailed
+    - name: Test
+      # TestingPlatformShowTestsFailure is used to show test failures in the GitHub Actions UI
+      run: dotnet test -p:TestingPlatformShowTestsFailure=true
