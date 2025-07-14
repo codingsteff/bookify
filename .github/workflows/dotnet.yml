@@ -18,8 +18,12 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
-    - name: Version
+    - name: Dotnet version
       run: dotnet --version
+    - name: Dotnet info
+      run: dotnet --info
+    - name: Dotnet SDKs
+      run: dotnet --list-sdks
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
