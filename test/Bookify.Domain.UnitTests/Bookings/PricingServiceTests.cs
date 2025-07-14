@@ -21,7 +21,7 @@ public class PricingServiceTests
         var pricingDetails = pricingService.CalculatePrice(apartment, period);
 
         // Assert
-        pricingDetails.TotalPrice.ShouldNotBe(expectedPrice);
+        pricingDetails.TotalPrice.ShouldBe(expectedPrice);
     }
 
     [Fact]
