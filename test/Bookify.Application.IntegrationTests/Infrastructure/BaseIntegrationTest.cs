@@ -10,8 +10,6 @@ public abstract class BaseIntegrationTest : IClassFixture<IntegrationTestWebAppF
     protected readonly ISender Sender;
     protected readonly ApplicationDbContext DbContext;
 
-    protected readonly IntegrationTestWebAppFactory Factory;
-
     protected BaseIntegrationTest(IntegrationTestWebAppFactory factory)
     {
         _scope = factory.Services.CreateScope();
