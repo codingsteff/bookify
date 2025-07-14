@@ -13,6 +13,8 @@ Pragmatic Clean Architecture application
 
 ## TODO
 [ ] Finish the course  
+[ ] Resolve warning CS8618: Non-nullable properties  
+[ ] Complete the test job (MTP all test-projects) in the CI/CD pipeline  
 [ ] Better Endpoints? https://youtu.be/VKc88NWf4lw?t=720  
 [ ] Migrate all Controllers to Minimal APIs-Endpoints  
 [ ] Get rid of MediatR 
@@ -31,6 +33,14 @@ Hit [F5]
 or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127.0.0.1?*
 
 ### Tests
+
+`dotnet test`
+
+* Domain Layer Unit Tests
+* Application Layer Unit Tests
+* Integration Tests (with Testcontainers)
+* Functional Tests (e2e, with Testcontainers)
+* Architecture Tests (NetArchTest to enforce layer rules, design and naming conventions)
 
 ### Database
 * Database will auto created and seeded with data on application start in `Development` environment

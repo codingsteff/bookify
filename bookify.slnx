@@ -9,6 +9,7 @@
     <Project Path="test/Bookify.Api.FunctionalTests/Bookify.Api.FunctionalTests.csproj" />
     <Project Path="test/Bookify.Application.IntegrationTests/Bookify.Application.IntegrationTests.csproj" />
     <Project Path="test/Bookify.Application.UnitTests/Bookify.Application.UnitTests.csproj" />
+    <Project Path="test/Bookify.ArchitectureTests/Bookify.ArchitectureTests.csproj" />
     <Project Path="test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj" />
   </Folder>
 </Solution>
