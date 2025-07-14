@@ -35,6 +35,6 @@ jobs:
       with:
         dotnet-version: 9.0.x
     - name: Run TEST
-      run: dotnet test test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj -p:TestingPlatformShowTestsFailure=true
+      run: dotnet test test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj
     # - name: Test
       # run: dotnet test --no-build --verbosity detailed
