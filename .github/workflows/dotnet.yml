@@ -24,13 +24,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore --configuration Release
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: build-artifacts
-        path: |
-          **/bin/
-          **/obj/
 
   test:
     runs-on: ubuntu-latest
@@ -41,11 +34,7 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
-    - name: Download build artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: build-artifacts
     - name: Run TEST
-      run: dotnet test test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj --no-build -p:TestingPlatformShowTestsFailure=true
+      run: dotnet test test/Bookify.Domain.UnitTests/Bookify.Domain.UnitTests.csproj -p:TestingPlatformShowTestsFailure=true
     # - name: Test
       # run: dotnet test --no-build --verbosity detailed
