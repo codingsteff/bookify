@@ -64,3 +64,4 @@ Bookify is a pragmatic Clean Architecture application designed with separation o
 ## Additional Guidelines
 
 - file:/instructions/csharp.instructions.md
+- file:/instructions/aspnet.instructions.md
