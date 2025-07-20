@@ -35,4 +35,55 @@ public class UserTests : BaseTest
         user.Roles.ShouldContain(Role.Registered);
     }
 
+    [Fact]
+    public void Create_Should_GenerateUniqueId()
+    {
+        // Act
+        var user1 = User.Create(UserData.FirstName, UserData.LastName, UserData.Email);
+        var user2 = User.Create(UserData.FirstName, UserData.LastName, UserData.Email);
+
+        // Assert
+        user1.Id.ShouldNotBe(user2.Id);
+        user1.Id.ShouldNotBe(Guid.Empty);
+        user2.Id.ShouldNotBe(Guid.Empty);
+    }
+
+    [Fact]
+    public void Create_Should_InitializeIdentityIdAsEmpty()
+    {
+        // Act
+        var user = User.Create(UserData.FirstName, UserData.LastName, UserData.Email);
+
+        // Assert
+        user.IdentityId.ShouldBe(string.Empty);
+    }
+
+    [Fact]
+    public void SetIdentityId_Should_SetIdentityIdCorrectly()
+    {
+        // Arrange
+        var user = User.Create(UserData.FirstName, UserData.LastName, UserData.Email);
+        var identityId = "auth0|123456789";
+
+        // Act
+        user.SetIdentityId(identityId);
+
+        // Assert
+        user.IdentityId.ShouldBe(identityId);
+    }
+
+    [Fact]
+    public void Roles_Should_ReturnReadOnlyCollection()
+    {
+        // Arrange
+        var user = User.Create(UserData.FirstName, UserData.LastName, UserData.Email);
+
+        // Act
+        var roles = user.Roles;
+
+        // Assert
+        roles.ShouldBeOfType<System.Collections.ObjectModel.ReadOnlyCollection<Role>>();
+        roles.ShouldContain(Role.Registered);
+    }
+
 }
