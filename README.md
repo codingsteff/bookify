@@ -12,7 +12,7 @@ Pragmatic Clean Architecture application
 
 
 ## TODO
-[ ] Move DDD Abstractions to SharedKernel (check template from Milan)  
+[ ] Move DDD Abstractions to SharedKernel? (check template from Milan)  
 [ ] Better Endpoints? https://youtu.be/VKc88NWf4lw?t=720  
 [ ] Tryout [FastEndpoints](https://fast-endpoints.com/)  
 [ ] Migrate all Controllers to Minimal APIs-Endpoints (check template from Milan)  
@@ -60,6 +60,7 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
 * Value Objects (Immutable, no identity, in C# with record) e.g. Money, Address, DateRange
 * Domain Services (Business Logic don't fit to Entity, can call Repositories)
 * Domain Events (when something happens in the domain, can be handled by other parts of the system via MediatR.Contracts)
+* Folder structure like vertical slices for bounded context -> aggregates.
 
 ### Application Layer
 * Orchestrates the domain
@@ -68,6 +69,7 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
 * Application Services (use Repositories, DomainServices)
 * CQRS (Command Query Responsibility Segregation), Loose Coupling with MediatR
 * Cross-Cutting Concerns/Pipeline behaviors (Logging, Validation)
+* Folder structure like vertical slices for Use cases (can have subfolder for Commands, Queries, IntegrationEvents)
 
 > Pragmatic: use of Dapper for access ReadModels, normaly don't directly use external libs
 
