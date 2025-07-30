@@ -1,5 +1,5 @@
 using Bookify.Domain.Apartments;
-using Bookify.Domain.Shared;
+using Bookify.Domain.Common;
 
 namespace Bookify.Domain.Bookings;
 

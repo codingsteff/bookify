@@ -2,7 +2,7 @@ using Bookify.Application.UnitTests.Apartments;
 using Bookify.Application.UnitTests.Users;
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Bookings;
-using Bookify.Domain.Shared;
+using Bookify.Domain.Common;
 
 namespace Bookify.Application.UnitTests.Bookings;
 

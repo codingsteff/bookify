@@ -6,7 +6,7 @@ using Bookify.Application.UnitTests.Users;
 using Bookify.Domain.Abstractions;
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Bookings;
-using Bookify.Domain.Shared;
+using Bookify.Domain.Common;
 using Bookify.Domain.Users;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;

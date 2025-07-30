@@ -1,7 +1,7 @@
 using Bookify.Domain.Abstractions;
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Bookings.Events;
-using Bookify.Domain.Shared;
+using Bookify.Domain.Common;
 
 namespace Bookify.Domain.Bookings;
 

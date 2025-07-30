@@ -1,5 +1,5 @@
 using Bookify.Domain.UnitTests.Infrastructure;
-using Bookify.Domain.Shared;
+using Bookify.Domain.Common;
 using Shouldly;
 
 namespace Bookify.Domain.UnitTests.Shared;

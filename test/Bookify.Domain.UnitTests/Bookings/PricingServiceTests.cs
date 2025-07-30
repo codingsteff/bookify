@@ -2,7 +2,7 @@ using Bookify.Domain.Bookings;
 using Shouldly;
 using Bookify.Domain.UnitTests.Apartments;
 using Bookify.Domain.UnitTests.Infrastructure;
-using Bookify.Domain.Shared;
+using Bookify.Domain.Common;
 using Bookify.Domain.Apartments;
 
 namespace Bookify.Domain.UnitTests.Bookings;

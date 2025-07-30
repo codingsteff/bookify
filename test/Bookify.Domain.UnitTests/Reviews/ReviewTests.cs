@@ -4,7 +4,7 @@ using Bookify.Domain.UnitTests.Users;
 using Bookify.Domain.Reviews;
 using Bookify.Domain.Reviews.Events;
 using Bookify.Domain.Bookings;
-using Bookify.Domain.Shared;
+using Bookify.Domain.Common;
 using Shouldly;
 
 namespace Bookify.Domain.UnitTests.Reviews;

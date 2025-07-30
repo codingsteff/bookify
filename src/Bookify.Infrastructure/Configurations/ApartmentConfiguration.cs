@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Bookify.Domain.Apartments;
-using Bookify.Domain.Shared;
+using Bookify.Domain.Common;
 
 namespace Bookify.Infrastructure.Configurations;
 

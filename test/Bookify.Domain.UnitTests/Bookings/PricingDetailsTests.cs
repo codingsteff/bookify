@@ -1,6 +1,6 @@
 using Bookify.Domain.UnitTests.Infrastructure;
 using Bookify.Domain.Bookings;
-using Bookify.Domain.Shared;
+using Bookify.Domain.Common;
 using Shouldly;
 
 namespace Bookify.Domain.UnitTests.Bookings;
