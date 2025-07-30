@@ -8,16 +8,13 @@ namespace Bookify.Api.Endpoints.Bookings;
 
 public static class BookingsEndpoints
 {
-    public static IEndpointRouteBuilder MapBookingsEndpoints(this IEndpointRouteBuilder builder)
+    public static void MapBookingsEndpoints(this IEndpointRouteBuilder builder)
     {
-        builder.MapGet("bookings/{id}", GetBooking)
-            .RequireAuthorization()
-            .WithName(nameof(GetBooking));
+        var group = builder.MapGroup("bookings").RequireAuthorization();
 
-        builder.MapPost("bookings", ReserveBooking)
-        .RequireAuthorization();
+        group.MapGet("{id}", GetBooking).WithName(nameof(GetBooking));
 
-        return builder;
+        group.MapPost("", ReserveBooking).WithName(nameof(ReserveBooking));
     }
 
     public static async Task<Results<Ok<BookingResponse>, NotFound>> GetBooking(Guid id, ISender sender, CancellationToken cancellationToken)
@@ -29,10 +26,7 @@ public static class BookingsEndpoints
         return result.IsSuccess ? TypedResults.Ok(result.Value) : TypedResults.NotFound();
     }
 
-    public static async Task<Results<CreatedAtRoute<Guid>, BadRequest<Error>>> ReserveBooking(
-        ReserveBookingRequest request,
-        ISender sender,
-        CancellationToken cancellationToken)
+    public static async Task<Results<CreatedAtRoute<Guid>, BadRequest<Error>>> ReserveBooking(ReserveBookingRequest request, ISender sender, CancellationToken cancellationToken)
     {
         var command = new ReserveBookingCommand(
             request.ApartmentId,
@@ -49,4 +43,5 @@ public static class BookingsEndpoints
 
         return TypedResults.CreatedAtRoute(result.Value, nameof(GetBooking), new { id = result.Value });
     }
+
 }
