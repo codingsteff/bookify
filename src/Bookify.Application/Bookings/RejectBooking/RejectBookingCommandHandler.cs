@@ -5,13 +5,13 @@ using Bookify.Domain.Bookings;
 
 namespace Bookify.Application.Bookings.RejectBooking;
 
-internal sealed class RejectBookingCommandCommandHandler : ICommandHandler<RejectBookingCommand>
+internal sealed class RejectBookingCommandHandler : ICommandHandler<RejectBookingCommand>
 {
     private readonly IDateTimeProvider _dateTimeProvider;
     private readonly IBookingRepository _bookingRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public RejectBookingCommandCommandHandler(IDateTimeProvider dateTimeProvider, IBookingRepository bookingRepository, IUnitOfWork unitOfWork)
+    public RejectBookingCommandHandler(IDateTimeProvider dateTimeProvider, IBookingRepository bookingRepository, IUnitOfWork unitOfWork)
     {
         _bookingRepository = bookingRepository;
         _unitOfWork = unitOfWork;
