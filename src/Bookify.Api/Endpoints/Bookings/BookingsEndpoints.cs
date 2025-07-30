@@ -9,6 +9,10 @@ internal sealed partial class BookingsEndpoints : IEndpoint
         group.MapGet("{id}", GetBooking).WithName(nameof(GetBooking));
 
         group.MapPost("", ReserveBooking).WithName(nameof(ReserveBooking));
+        
+        group.MapPut("{id}/reject", RejectBooking).WithName(nameof(RejectBooking));
+
+        group.MapDelete("{id}", CancelBooking).WithName(nameof(CancelBooking));
     }
 
 }

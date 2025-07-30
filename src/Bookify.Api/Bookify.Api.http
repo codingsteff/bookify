@@ -35,11 +35,15 @@ Authorization: Bearer {{token.response.body.$.accessToken}}
 Content-Type: application/json
 
 {
-  "ApartmentId": "24a29cc4-32cd-47c0-a29b-30fd89f49e4e",
+  "ApartmentId": "24331b4f-d70d-4d17-b528-e30e8829b1a6",
   "UserId": "{{UserIdSteff}}",
   "StartDate": "2025-01-25",
   "EndDate": "2025-01-27"
 }
+
+### Booking reject
+PUT {{HostAddress}}/api/v1/bookings/60767b1f-2307-4e6f-85e3-72a32ed1937a/reject
+Authorization: Bearer {{token.response.body.$.accessToken}}
 
 ### User register
 POST {{HostAddress}}/api/v2/users/register
