@@ -1,7 +1,7 @@
 using Bookify.Application.Abstractions.Clock;
 using Bookify.Application.Reviews.AddReview;
 using Bookify.Application.UnitTests.Bookings;
-using Bookify.Domain.Abstractions;
+using Bookify.Domain.Shared;
 using Bookify.Domain.Bookings;
 using Bookify.Domain.Reviews;
 using NSubstitute;

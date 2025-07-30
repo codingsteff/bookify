@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 using MediatR;
-using Bookify.Domain.Abstractions;
+using Bookify.Domain.Shared;
 using Serilog.Context;
 
 namespace Bookify.Application.Abstractions.Behaviors;

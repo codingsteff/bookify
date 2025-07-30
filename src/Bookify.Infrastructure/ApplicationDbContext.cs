@@ -2,7 +2,7 @@ using System.Text.Json;
 using Bookify.Application.Abstractions.Clock;
 using Bookify.Application.Exceptions;
 using Bookify.Infrastructure.Data;
-using Bookify.Domain.Abstractions;
+using Bookify.Domain.Shared;
 using Bookify.Infrastructure.Outbox;
 using Microsoft.EntityFrameworkCore;
 

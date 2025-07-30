@@ -1,4 +1,4 @@
-namespace Bookify.Domain.Abstractions;
+namespace Bookify.Domain.Shared;
 
 public record Error(string Code, string Name)
 {

@@ -3,7 +3,7 @@ using Bookify.Application.Bookings.ReserveBooking;
 using Bookify.Application.Exceptions;
 using Bookify.Application.UnitTests.Apartments;
 using Bookify.Application.UnitTests.Users;
-using Bookify.Domain.Abstractions;
+using Bookify.Domain.Shared;
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Bookings;
 using Bookify.Domain.Common;

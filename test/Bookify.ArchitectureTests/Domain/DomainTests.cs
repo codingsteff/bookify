@@ -1,6 +1,6 @@
 using System.Reflection;
 using Bookify.ArchitectureTests.Infrastructure;
-using Bookify.Domain.Abstractions;
+using Bookify.Domain.Shared;
 
 namespace Bookify.ArchitectureTests.Domain;
 

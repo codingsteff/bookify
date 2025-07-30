@@ -1,5 +1,5 @@
 using Bookify.Application.Abstractions.Messaging;
-using Bookify.Domain.Abstractions;
+using Bookify.Domain.Shared;
 using Bookify.Infrastructure;
 using System.Reflection;
 

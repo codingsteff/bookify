@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
-namespace Bookify.Domain.Abstractions;
+namespace Bookify.Domain.Shared;
 
 public class Result
 {

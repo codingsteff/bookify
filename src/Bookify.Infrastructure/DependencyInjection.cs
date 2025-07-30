@@ -5,7 +5,7 @@ using Bookify.Application.Abstractions.Clock;
 using Bookify.Application.Abstractions.Data;
 using Bookify.Application.Abstractions.Email;
 using Bookify.Application.Authentication;
-using Bookify.Domain.Abstractions;
+using Bookify.Domain.Shared;
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Bookings;
 using Bookify.Domain.Reviews;

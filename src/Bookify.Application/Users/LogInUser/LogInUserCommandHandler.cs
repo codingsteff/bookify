@@ -1,6 +1,6 @@
 using Bookify.Application.Abstractions.Authentication;
 using Bookify.Application.Abstractions.Messaging;
-using Bookify.Domain.Abstractions;
+using Bookify.Domain.Shared;
 using Bookify.Domain.Users;
 
 namespace Bookify.Application.Users.LogInUser;

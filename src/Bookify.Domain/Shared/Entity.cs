@@ -1,4 +1,5 @@
-namespace Bookify.Domain.Abstractions;
+namespace Bookify.Domain.Shared;
+
 public abstract class Entity
 {
     protected Entity(Guid id)

@@ -1,4 +1,4 @@
-namespace Bookify.Domain.Abstractions;
+namespace Bookify.Domain.Shared;
 
 // Implementation in ApplicationDbContext: SaveChangesAsync same signature
 public interface IUnitOfWork

@@ -2,7 +2,7 @@ using System.Data;
 using System.Text.Json;
 using Bookify.Application.Abstractions.Clock;
 using Bookify.Application.Abstractions.Data;
-using Bookify.Domain.Abstractions;
+using Bookify.Domain.Shared;
 using Bookify.Infrastructure.Data;
 using Dapper;
 using MediatR;

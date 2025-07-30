@@ -12,10 +12,9 @@ Pragmatic Clean Architecture application
 
 
 ## TODO
-[ ] Move DDD Abstractions to SharedKernel? (check template from Milan)  
-[ ] Get rid of MediatR  
-[ ] SignalR communication  
+[ ] Get rid of MediatR (check videos and maybe ca-template from Milan)    
 [ ] Change Caching to [HybridCache](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)  
+[ ] SignalR communication  
 [ ] Message Brokers (RabbitMQ)  
 
 

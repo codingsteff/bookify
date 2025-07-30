@@ -1,5 +1,5 @@
 using MediatR;
-using Bookify.Domain.Abstractions;
+using Bookify.Domain.Shared;
 using Bookify.Application.Abstractions.Caching;
 using Microsoft.Extensions.Logging;
 
