@@ -13,12 +13,9 @@ Pragmatic Clean Architecture application
 
 ## TODO
 [ ] Move DDD Abstractions to SharedKernel? (check template from Milan)  
-[ ] Tryout [FastEndpoints](https://fast-endpoints.com/)  
-[ ] Get rid of MediatR 
+[ ] Get rid of MediatR  
 [ ] SignalR communication  
 [ ] Change Caching to [HybridCache](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)  
-[ ] Use EF Core RawSql with Unmapped Types as [Alternative to Dapper](https://www.youtube.com/watch?v=0ArU_C0gPdA&list=WL&index=53)  
-    https://www.courses.milanjovanovic.tech/courses/pragmatic-clean-architecture/lectures/56680685  
 [ ] Message Brokers (RabbitMQ)  
 
 
