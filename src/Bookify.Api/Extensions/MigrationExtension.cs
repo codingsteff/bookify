@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bookify.Api.Extensions;
 
-public static class ApplicationBuilderExtensions
+public static class MigrationExtension
 {
     public static void ApplyMigrations(this IApplicationBuilder app)
     {
