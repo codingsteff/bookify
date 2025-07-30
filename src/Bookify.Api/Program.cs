@@ -1,5 +1,4 @@
 using Bookify.Api.Extensions;
-using Bookify.Api.Endpoints.Bookings;
 using Bookify.Application;
 using Bookify.Infrastructure;
 using HealthChecks.UI.Client;
@@ -11,13 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 
-builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
+builder.Services.AddEndpoints();
+
 var app = builder.Build();
+
+app.MapApiEndpoints();
 
 if (app.Environment.IsDevelopment())
 {
@@ -34,14 +36,6 @@ app.UseCustomExceptionHandler();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.MapControllers();
-
-var apiVersionSet = app.CreateApiVersionSet();
-
-var routeGroupBuilder = app.MapGroup("api/v{version:apiVersion}").WithApiVersionSet(apiVersionSet);
-
-routeGroupBuilder.MapBookingsEndpoints();
 
 app.MapHealthChecks("/health", new HealthCheckOptions
 {

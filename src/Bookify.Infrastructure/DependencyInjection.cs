@@ -77,6 +77,7 @@ public static class DependencyInjection
 
     private static void AddAuthorization(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddAuthorization();
         services.AddHttpContextAccessor();
         services.AddScoped<IUserContext, UserContext>();
 

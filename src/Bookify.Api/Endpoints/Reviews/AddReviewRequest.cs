@@ -1,3 +1,3 @@
-﻿namespace Bookify.Api.Controllers.Reviews;
+﻿namespace Bookify.Api.Endpoints.Reviews;
 
 public sealed record AddReviewRequest(Guid BookingId, int Rating, string Comment);

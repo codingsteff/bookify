@@ -1,4 +1,4 @@
-namespace Bookify.Api.Controllers;
+namespace Bookify.Api.Endpoints;
 
 public static class Permissions
 {

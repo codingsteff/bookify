@@ -13,9 +13,7 @@ Pragmatic Clean Architecture application
 
 ## TODO
 [ ] Move DDD Abstractions to SharedKernel? (check template from Milan)  
-[ ] Better Endpoints? https://youtu.be/VKc88NWf4lw?t=720  
 [ ] Tryout [FastEndpoints](https://fast-endpoints.com/)  
-[ ] Migrate all Controllers to Minimal APIs-Endpoints (check template from Milan)  
 [ ] Get rid of MediatR 
 [ ] SignalR communication  
 [ ] Change Caching to [HybridCache](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)  

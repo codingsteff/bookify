@@ -1,3 +1,3 @@
-namespace Bookify.Api.Controllers.Users;
+namespace Bookify.Api.Endpoints.Users;
 
 public sealed record LogInUserRequest(string Email, string Password);
