@@ -1,12 +1,10 @@
 using Bookify.Application.Bookings.GetBooking;
 using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
-
 namespace Bookify.Api.Endpoints.Bookings;
 
 internal sealed partial class BookingsEndpoints 
 {
-    private static async Task<Results<Ok<BookingResponse>, NotFound>> GetBooking(Guid id, ISender sender, CancellationToken cancellationToken)
+    private static async Task<IResult> GetBooking(Guid id, ISender sender, CancellationToken cancellationToken)
     {
         var query = new GetBookingQuery(id);
 
