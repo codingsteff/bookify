@@ -60,4 +60,12 @@ Content-Type: application/json
 GET {{HostAddress}}/api/v2/users/me
 Authorization: Bearer {{token.response.body.$.accessToken}}
 
-### 
+### Search users with term
+GET {{HostAddress}}/api/v1/users/search?searchTerm=@user.io
+Authorization: Bearer {{token.response.body.$.accessToken}}
+
+### Search users with exact match
+GET {{HostAddress}}/api/v1/users/search?exactMatch=steff@user.io
+Authorization: Bearer {{token.response.body.$.accessToken}}
+
+###

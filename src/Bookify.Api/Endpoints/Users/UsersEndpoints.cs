@@ -17,6 +17,8 @@ internal sealed partial class UsersEndpoints : IEndpoint
         authEndpoints.MapGet("me", GetLoggedInUserV1).MapToApiVersion(ApiVersions.V1).WithName(nameof(GetLoggedInUserV1));
 
         authEndpoints.MapGet("me", GetLoggedInUser).MapToApiVersion(ApiVersions.V2).WithName(nameof(GetLoggedInUser));
+
+        authEndpoints.MapGet("search", SearchUsers).WithName(nameof(SearchUsers));
     }
 
     private static void MapAnonymousEndpoints(IEndpointRouteBuilder app)
