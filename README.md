@@ -12,10 +12,13 @@ Pragmatic Clean Architecture application
 
 
 ## TODO
-[ ] Get rid of MediatR (check videos and maybe ca-template from Milan)    
-[ ] Change Caching to [HybridCache](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)  
-[ ] SignalR communication  
-[ ] Message Brokers (RabbitMQ)  
+* Simple ReadModel  
+  * [Performance Boost Of CQRS Read Models](https://www.youtube.com/watch?v=AVBAAKa84cs) 
+  * [Separate Read/Write Models with EF Core and CQRS](https://www.youtube.com/watch?v=iKDITShiZy4) 
+* Get rid of MediatR (check videos and maybe ca-template from Milan)    
+* Change Caching to [HybridCache](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)  
+* SignalR communication (using abstractions)  
+* Message Brokers (RabbitMQ)  
 
 
 ## Start
