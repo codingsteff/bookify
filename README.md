@@ -71,6 +71,7 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
 * External concerns (Database, Message Brokers, Identity Providers, File Systems, ...)
 * Implementations of abstractions
 * Persistence (EF Core and PostgresSQL)
+  * Conversion of Domain Model to Database Model (ValueObjects as Complex Properties, e.g. User.Email)
 * Transactional Outbox Message Pattern for reliable DomainEvents in distributed systems (UnitOfWork when saving Entities)
 * Identity Provider: Keycloak
 
