@@ -18,7 +18,7 @@ Pragmatic Clean Architecture application
 * Get rid of MediatR (check videos and maybe ca-template from Milan)    
 * Change Caching to [HybridCache](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)  
 * SignalR communication (using abstractions)  
-* Message Brokers (RabbitMQ)  
+* Message Broker (Rebus+RabbitMQ) for Integration Events
 
 
 ## Start
