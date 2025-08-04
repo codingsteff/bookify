@@ -69,6 +69,7 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
 * Folder structure like vertical slices for Use cases (can have subfolder for Commands, Queries, IntegrationEvents)
 
 > Pragmatic: use of Dapper for access ReadModels, normaly don't directly use external libs
+> As Alternative see IApartmentReadRepository, but logic is in the Infrastructure Layer
 
 ### Infrastructure Layer
 * External concerns (Database, Message Brokers, Identity Providers, File Systems, ...)

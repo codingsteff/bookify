@@ -4,6 +4,7 @@ using Bookify.Application.Abstractions.Caching;
 using Bookify.Application.Abstractions.Clock;
 using Bookify.Application.Abstractions.Data;
 using Bookify.Application.Abstractions.Email;
+using Bookify.Application.Apartments;
 using Bookify.Application.Authentication;
 using Bookify.Domain.Shared;
 using Bookify.Domain.Apartments;
@@ -101,11 +102,11 @@ public static class DependencyInjection
 
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IApartmentRepository, ApartmentRepository>();
+        services.AddScoped<IApartmentReadRepository, ApartmentReadRepository>();
         services.AddScoped<IBookingRepository, BookingRepository>();
         services.AddScoped<IReviewRepository, ReviewRepository>();
         // use service provider to resolve ApplicationDbContext as the implementation of IUnitOfWork
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
-        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
 
         services.AddSingleton<ISqlConnectionFactory>(_ => new SqlConnectionFactory(connectionString));
         SqlMapper.AddTypeHandler(new DateOnlyTypeHandler()); // Register custom Dapper type handler for DateOnly conversion

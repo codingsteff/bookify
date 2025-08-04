@@ -14,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bookify.Infrastructure;
 
-public sealed class ApplicationDbContext : DbContext, IUnitOfWork, IApplicationDbContext
+public sealed class ApplicationDbContext : DbContext, IUnitOfWork
 {
     private static readonly JsonSerializerOptions JsonSerializerOptions = new()
     {
