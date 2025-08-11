@@ -6,3 +6,10 @@ updates:
       interval: "weekly"
       day: "wednesday"
       time: "12:30"
+
+  - package-ecosystem: "dotnet-sdk"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "12:30"
