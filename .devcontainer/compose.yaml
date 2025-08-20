@@ -44,6 +44,7 @@ services:
     container_name: bookify-seq
     environment:
       ACCEPT_EULA: Y
+      SEQ_FIRSTRUN_ADMINPASSWORD: 12345
     ports:
       - 5341:5341
       - 8082:80
