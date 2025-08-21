@@ -1,11 +1,12 @@
 using Microsoft.Extensions.Logging;
-using MediatR;
+using Mediator;
 using Bookify.Domain.Shared;
 using Serilog.Context;
 
 namespace Bookify.Application.Abstractions.Behaviors;
+
 public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : IBaseRequest // Logging only for commands with IBaseCommand, if queries should be as fast as possible
+    where TRequest : Messaging.IBaseCommand // Logging only for commands with IBaseCommand, if queries should be as fast as possible
     where TResponse : Result
 {
     private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
@@ -14,7 +15,7 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     {
         _logger = logger;
     }
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    public async ValueTask<TResponse> Handle(TRequest request, MessageHandlerDelegate<TRequest, TResponse> next, CancellationToken cancellationToken)
     {
 
         var name = request.GetType().Name;
@@ -23,7 +24,7 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
         {
 
             _logger.LogInformation("Executing request {Request}", name);
-            var result = await next();
+            var result = await next(request, cancellationToken);
 
             if (result.IsSuccess)
             {

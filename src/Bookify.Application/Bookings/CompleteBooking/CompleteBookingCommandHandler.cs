@@ -18,7 +18,7 @@ internal sealed class CompleteBookingCommandHandler : ICommandHandler<CompleteBo
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<Result> Handle(CompleteBookingCommand request, CancellationToken cancellationToken)
+    public async ValueTask<Result> Handle(CompleteBookingCommand request, CancellationToken cancellationToken)
     {
         var booking = await _bookingRepository.GetByIdAsync(request.BookingId, cancellationToken);
 

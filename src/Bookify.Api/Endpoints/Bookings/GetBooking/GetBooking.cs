@@ -1,5 +1,6 @@
 using Bookify.Application.Bookings.GetBooking;
-using MediatR;
+using Mediator;
+
 namespace Bookify.Api.Endpoints.Bookings;
 
 internal sealed partial class BookingsEndpoints 

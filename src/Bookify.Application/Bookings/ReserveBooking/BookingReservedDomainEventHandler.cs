@@ -2,7 +2,7 @@ using Bookify.Application.Abstractions.Email;
 using Bookify.Domain.Bookings;
 using Bookify.Domain.Bookings.Events;
 using Bookify.Domain.Users;
-using MediatR;
+using Mediator;
 
 namespace Bookify.Application.Bookings.ReserveBooking;
 
@@ -21,7 +21,7 @@ internal sealed class BookingReservedDomainEventHandler : INotificationHandler<B
         _userRepository = userRepository;
         _emailService = emailService;
     }
-    public async Task Handle(BookingReservedDomainEvent notification, CancellationToken cancellationToken)
+    public async ValueTask Handle(BookingReservedDomainEvent notification, CancellationToken cancellationToken)
     {
         var booking = await _bookingRepository.GetByIdAsync(notification.BookingId, cancellationToken);
 

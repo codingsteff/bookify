@@ -1,12 +1,11 @@
-using Bookify.Application.Abstractions.Messaging;
 using Bookify.Application.Exceptions;
 using FluentValidation;
-using MediatR;
+using Mediator;
 
 namespace Bookify.Application.Abstractions.Behaviors;
-public class ValidationBehavior<TRequest, TResponse>
-    : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : IBaseCommand // Validation is only necessary for commands
+
+public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    where TRequest : Messaging.IBaseCommand // Validation is only necessary for commands
 {
     private readonly IEnumerable<IValidator<TRequest>> _validators;
 
@@ -15,15 +14,12 @@ public class ValidationBehavior<TRequest, TResponse>
         _validators = validators;
     }
 
-    public async Task<TResponse> Handle(
-        TRequest request,
-        RequestHandlerDelegate<TResponse> next,
-        CancellationToken cancellationToken)
+    public async ValueTask<TResponse> Handle(TRequest request, MessageHandlerDelegate<TRequest, TResponse> next, CancellationToken cancellationToken)
     {
 
         if (!_validators.Any())
         {
-            return await next();
+            return await next(request, cancellationToken);
         }
 
         var context = new ValidationContext<TRequest>(request);
@@ -42,6 +38,6 @@ public class ValidationBehavior<TRequest, TResponse>
             throw new Exceptions.ValidationException(validationErrors);
         }
 
-        return await next();
+        return await next(request, cancellationToken);
     }
 }

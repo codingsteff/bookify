@@ -1,5 +1,5 @@
 using Bookify.Application.Users.LogInUser;
-using MediatR;
+using Mediator;
 
 namespace Bookify.Api.Endpoints.Users;
 

@@ -13,7 +13,7 @@ internal sealed class SearchUsersQueryHandler : IQueryHandler<SearchUsersQuery, 
         _repository = repository;
     }
 
-    public async Task<Result<IReadOnlyList<UserResponse>>> Handle(SearchUsersQuery request, CancellationToken cancellationToken)
+    public async ValueTask<Result<IReadOnlyList<UserResponse>>> Handle(SearchUsersQuery request, CancellationToken cancellationToken)
     {
         var users = await _repository.SearchUser(request.SearchTerm, request.ExactMatch, cancellationToken);
 

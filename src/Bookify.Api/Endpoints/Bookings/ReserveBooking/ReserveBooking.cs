@@ -1,5 +1,5 @@
 using Bookify.Application.Bookings.ReserveBooking;
-using MediatR;
+using Mediator;
 
 namespace Bookify.Api.Endpoints.Bookings;
 

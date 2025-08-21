@@ -25,7 +25,7 @@ internal sealed class AddReviewCommandHandler : ICommandHandler<AddReviewCommand
         _dateTimeProvider = dateTimeProvider;
     }
 
-    public async Task<Result> Handle(AddReviewCommand request, CancellationToken cancellationToken)
+    public async ValueTask<Result> Handle(AddReviewCommand request, CancellationToken cancellationToken)
     {
         var booking = await _bookingRepository.GetByIdAsync(request.BookingId, cancellationToken);
 

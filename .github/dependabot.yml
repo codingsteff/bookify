@@ -6,3 +6,12 @@ updates:
       interval: "weekly"
       day: "wednesday"
       time: "12:30"
+
+  # https://devblogs.microsoft.com/dotnet/using-dependabot-to-manage-dotnet-sdk-updates/
+  # disabled: needs a global.json
+  # - package-ecosystem: "dotnet-sdk"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #     day: "wednesday"
+  #     time: "12:30"
