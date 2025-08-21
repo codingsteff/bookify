@@ -17,7 +17,7 @@ internal sealed class GetLoggedInUserQueryHandler : IQueryHandler<GetLoggedInUse
         _userContext = userContext;
     }
 
-    public async Task<Result<UserResponse>> Handle(GetLoggedInUserQuery request, CancellationToken cancellationToken)
+    public async ValueTask<Result<UserResponse>> Handle(GetLoggedInUserQuery request, CancellationToken cancellationToken)
     {
         using var connection = _sqlConnectionFactory.CreateConnection();
 

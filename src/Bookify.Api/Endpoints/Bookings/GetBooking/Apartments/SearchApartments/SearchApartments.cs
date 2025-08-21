@@ -1,11 +1,11 @@
 using Bookify.Application.Apartments.SearchApartments;
-using MediatR;
+using Mediator;
 
 namespace Bookify.Api.Endpoints.Apartments;
 
 internal sealed partial class ApartmentsEndpoints 
 {
-    private static async Task<IResult> SearchApartments(DateOnly startDate, DateOnly endDate, ISender sender, CancellationToken cancellationToken)
+    private static async ValueTask<IResult> SearchApartments(DateOnly startDate, DateOnly endDate, ISender sender, CancellationToken cancellationToken)
     {
         var query = new SearchApartmentsQuery(startDate, endDate);
 

@@ -1,8 +1,8 @@
-using MediatR;
+using Mediator;
 
 namespace Bookify.Domain.Shared;
 
-// MediatR INotification is for Publish/Subscribe pattern
+// Mediator INotification is for Publish/Subscribe pattern
 public interface IDomainEvent : INotification
 {
 }

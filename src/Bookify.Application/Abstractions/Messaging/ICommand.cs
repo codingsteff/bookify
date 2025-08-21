@@ -1,17 +1,16 @@
 using Bookify.Domain.Shared;
-using MediatR;
 
 namespace Bookify.Application.Abstractions.Messaging;
 
-public interface ICommand : IRequest<Result>, IBaseCommand
+public interface ICommand : Mediator.IRequest<Result>, IBaseCommand
 {
 }
 
-public interface ICommand<TReponse> : IRequest<Result<TReponse>>, IBaseCommand
+public interface ICommand<TReponse> : Mediator.IRequest<Result<TReponse>>, IBaseCommand
 {
 }
 
 // for apply generic constraints in behavior pipelines (middlewares)
-public interface IBaseCommand
+public interface IBaseCommand : Mediator.IMessage
 {
 }

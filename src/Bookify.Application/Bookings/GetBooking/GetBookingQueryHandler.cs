@@ -18,7 +18,7 @@ internal sealed class GetBookingQueryHandler : IQueryHandler<GetBookingQuery, Bo
         _userContext = userContext;
     }
 
-    public async Task<Result<BookingResponse>> Handle(GetBookingQuery request, CancellationToken cancellationToken)
+    public async ValueTask<Result<BookingResponse>> Handle(GetBookingQuery request, CancellationToken cancellationToken)
     {
         using var connection = _sqlConnectionFactory.CreateConnection();
         // trade-off: consider pragmatic, directly access read model without indirection

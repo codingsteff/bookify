@@ -18,7 +18,7 @@ internal sealed class RejectBookingCommandHandler : ICommandHandler<RejectBookin
         _dateTimeProvider = dateTimeProvider;
     }
 
-    public async Task<Result> Handle(RejectBookingCommand request, CancellationToken cancellationToken)
+    public async ValueTask<Result> Handle(RejectBookingCommand request, CancellationToken cancellationToken)
     {
         var booking = await _bookingRepository.GetByIdAsync(request.BookingId, cancellationToken);
 

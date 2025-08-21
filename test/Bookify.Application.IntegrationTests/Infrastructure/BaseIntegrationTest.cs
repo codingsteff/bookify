@@ -1,5 +1,5 @@
 using Bookify.Infrastructure;
-using MediatR;
+using Mediator;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bookify.Application.IntegrationTests.Infrastructure;

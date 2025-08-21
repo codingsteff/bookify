@@ -21,7 +21,7 @@ internal sealed class RegisterUserCommandHandler : ICommandHandler<RegisterUserC
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<Result<Guid>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+    public async ValueTask<Result<Guid>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
         var user = User.Create(
            new FirstName(request.FirstName),

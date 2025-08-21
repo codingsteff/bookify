@@ -10,7 +10,7 @@ Bookify is a pragmatic Clean Architecture application designed with separation o
 
 ## Key Conventions
 - **File-Scoped Namespaces**: All C# files must use file-scoped namespace declarations.
-- **CQRS**: Commands and queries are separated using MediatR for loose coupling.
+- **CQRS**: Commands and queries are separated using Mediator for loose coupling.
 - **Validation and Logging**: Implemented as pipeline behaviors in the Application layer.
 - **Minimal APIs**: Controllers are being migrated to minimal API endpoints.
 - **Database**: Uses EF Core with PostgreSQL. Migrations are located in `src/Bookify.Infrastructure/Migrations`.
@@ -37,7 +37,7 @@ Bookify is a pragmatic Clean Architecture application designed with separation o
 - **Domain Layer**:
   - Rich domain model with encapsulated business logic.
   - Use `ValueObjects` for immutable types (e.g., `Money`, `DateRange`).
-  - Domain events are handled via MediatR.
+  - Domain events are published via Mediator.
 - **Application Layer**:
   - Commands and queries are defined in `src/Bookify.Application`.
   - Handlers implement `ICommandHandler` or `IQueryHandler`.

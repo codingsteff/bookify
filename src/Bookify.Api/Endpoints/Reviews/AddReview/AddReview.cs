@@ -1,5 +1,5 @@
 using Bookify.Application.Reviews.AddReview;
-using MediatR;
+using Mediator;
 
 namespace Bookify.Api.Endpoints.Reviews;
 

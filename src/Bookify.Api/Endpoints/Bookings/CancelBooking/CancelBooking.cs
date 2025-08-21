@@ -1,6 +1,6 @@
 using Bookify.Application.Bookings.CancelBooking;
 using Bookify.Domain.Bookings;
-using MediatR;
+using Mediator;
 
 namespace Bookify.Api.Endpoints.Bookings;
 
