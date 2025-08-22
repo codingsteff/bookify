@@ -12,6 +12,8 @@ Pragmatic Clean Architecture application
 
 
 ## TODO
+* .NET 10
+  * [dotnet test dotnet.config](https://devblogs.microsoft.com/dotnet/dotnet-test-with-mtp)
 * docker-outside-of-docker is it faster?
 * Simple ReadModel  
   * [Performance Boost Of CQRS Read Models](https://www.youtube.com/watch?v=AVBAAKa84cs) 
