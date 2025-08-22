@@ -5,7 +5,7 @@ using Bookify.Application.Abstractions.Data;
 using Bookify.Domain.Shared;
 using Bookify.Infrastructure.Data;
 using Dapper;
-using MediatR;
+using Mediator;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Quartz;
@@ -42,7 +42,7 @@ internal sealed class OutboxProcessorJob : IJob
 
     public async Task Execute(IJobExecutionContext context)
     {
-        _logger.LogInformation("Beginning to process outbox messages");
+        _logger.LogDebug("Beginning to process outbox messages");
 
         using var connection = _sqlConnectionFactory.CreateConnection();
         using var transaction = connection.BeginTransaction();
@@ -69,7 +69,7 @@ internal sealed class OutboxProcessorJob : IJob
         }
 
         transaction.Commit();
-        _logger.LogInformation("Completed processing outbox messages");
+        _logger.LogDebug("Completed processing outbox messages");
     }
 
     private async Task<IReadOnlyList<OutboxMessageResponse>> GetOutboxMessagesAsync(IDbConnection connection, IDbTransaction transaction)

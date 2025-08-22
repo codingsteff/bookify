@@ -22,7 +22,7 @@ internal sealed class SearchApartmentsQueryHandler : IQueryHandler<SearchApartme
         _sqlConnectionFactory = sqlConnectionFactory;
     }
 
-    public async Task<Result<IReadOnlyList<ApartmentResponse>>> Handle(SearchApartmentsQuery request, CancellationToken cancellationToken)
+    public async ValueTask<Result<IReadOnlyList<ApartmentResponse>>> Handle(SearchApartmentsQuery request, CancellationToken cancellationToken)
     {
         if (request.StartDate > request.EndDate)
         {

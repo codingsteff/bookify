@@ -11,7 +11,8 @@
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/src/Bookify.Api/bin/Debug/net9.0/Bookify.Api.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/Bookify.Api",
+            "cwd": "${workspaceFolder}/src/Bookify.Api",            
+            "justMyCode": false,
             "stopAtEntry": false,
             // "serverReadyAction": {
             //     "action": "openExternally",

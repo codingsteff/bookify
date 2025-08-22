@@ -12,10 +12,12 @@ Pragmatic Clean Architecture application
 
 
 ## TODO
+* .NET 10
+  * [dotnet test dotnet.config](https://devblogs.microsoft.com/dotnet/dotnet-test-with-mtp)
+* docker-outside-of-docker is it faster?
 * Simple ReadModel  
   * [Performance Boost Of CQRS Read Models](https://www.youtube.com/watch?v=AVBAAKa84cs) 
   * [Separate Read/Write Models with EF Core and CQRS](https://www.youtube.com/watch?v=iKDITShiZy4) 
-* Get rid of MediatR (check videos and maybe ca-template from Milan)    
 * Change Caching to [HybridCache](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)  
 * SignalR communication (using abstractions)  
 * Message Broker (Rebus+RabbitMQ) for Integration Events
@@ -56,7 +58,7 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
   * Behavior-, State-Transitions-Methods and Commands (raise DomainEvents)
 * Value Objects (Immutable, no identity, in C# with record) e.g. Money, Address, DateRange
 * Domain Services (Business Logic don't fit to Entity, can call Repositories)
-* Domain Events (when something happens in the domain, can be handled by other parts of the system via MediatR.Contracts)
+* Domain Events (when something happens in the domain, can be handled by other parts of the system via Mediator Pub/Sub Pattern)
 * Folder structure like vertical slices for bounded context -> aggregates.
 
 ### Application Layer
@@ -64,7 +66,7 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
 * Business Logic not fitting to Domain
 * Use Cases (Driver of the application, taking Domain Model and telling them what to do)
 * Application Services (use Repositories, DomainServices)
-* CQRS (Command Query Responsibility Segregation), Loose Coupling with MediatR
+* CQRS (Command Query Responsibility Segregation), Loose Coupling with Mediator (Request/Response Pattern)
 * Cross-Cutting Concerns/Pipeline behaviors (Logging, Validation)
 * Folder structure like vertical slices for Use cases (can have subfolder for Commands, Queries, IntegrationEvents)
 
@@ -86,6 +88,6 @@ or `dotnet run --project src/Bookify.Api` *TODO: not working docker binds to 127
   * Request/Response
   * Controllers and Endpoints creates Commands and Queries
   * don't expose Commands directly, use DTOs (Request)
-  * MediatR handles Commands and Queries (loose coupling)
+  * Mediator handles Commands and Queries (loose coupling)
   * Dependency setup for all layers
   * Middlewares for Cross-Cutting Concerns (Logging)

@@ -1,10 +1,11 @@
-using MediatR;
-using Bookify.Domain.Shared;
+using Mediator;
 using Bookify.Application.Abstractions.Caching;
 using Microsoft.Extensions.Logging;
+using Bookify.Domain.Shared;
 
 namespace Bookify.Application.Abstractions.Behaviors;
-internal sealed class QueryCachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+
+public class QueryCachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : ICachedQuery
     where TResponse : Result
 {
@@ -17,7 +18,7 @@ internal sealed class QueryCachingBehavior<TRequest, TResponse> : IPipelineBehav
         _logger = logger;
     }
 
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    public async ValueTask<TResponse> Handle(TRequest request, MessageHandlerDelegate<TRequest, TResponse> next, CancellationToken cancellationToken)
     {
         TResponse? cachedResult = await _cacheService.GetAsync<TResponse>(request.CacheKey, cancellationToken);
 
@@ -30,9 +31,9 @@ internal sealed class QueryCachingBehavior<TRequest, TResponse> : IPipelineBehav
 
         _logger.LogInformation("Cache missing for {Query}", name);
 
-        var result = await next();
+        var result = await next(request, cancellationToken);
 
-        if (result.IsSuccess)
+        if (result is Result resultType && resultType.IsSuccess)
         {
             await _cacheService.SetAsync(request.CacheKey, result, request.Expiration, cancellationToken);
         }
