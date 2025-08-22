@@ -14,7 +14,6 @@ Pragmatic Clean Architecture application
 ## TODO
 * .NET 10
   * [dotnet test dotnet.config](https://devblogs.microsoft.com/dotnet/dotnet-test-with-mtp)
-* Migrate to Central Package Management 
 * Dependabot: enable auto-merge for minor updates
 * docker-outside-of-docker is it faster?
 * Simple ReadModel  

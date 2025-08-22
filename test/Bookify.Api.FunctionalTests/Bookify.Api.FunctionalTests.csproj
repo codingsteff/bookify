@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -19,21 +19,21 @@
 
   <ItemGroup>
   <!-- Testing: in-memory instance of our API -->
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.8" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-    <PackageReference Include="NSubstitute" Version="5.3.0" />
-    <PackageReference Include="Shouldly" Version="4.3.0" />
-    <PackageReference Include="Testcontainers.Keycloak" Version="4.6.0" />
-    <PackageReference Include="Testcontainers.PostgreSql" Version="4.6.0" />
-    <PackageReference Include="Testcontainers.Redis" Version="4.6.0" />
-    <PackageReference Include="xunit.v3" Version="3.0.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NSubstitute" />
+    <PackageReference Include="Shouldly" />
+    <PackageReference Include="Testcontainers.Keycloak" />
+    <PackageReference Include="Testcontainers.PostgreSql" />
+    <PackageReference Include="Testcontainers.Redis" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio" />
   </ItemGroup>
 
   <!-- Pinning for EfCore.NamingConventsions -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.8" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
