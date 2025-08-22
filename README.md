@@ -15,7 +15,6 @@ Pragmatic Clean Architecture application
 * .NET 10
   * [dotnet test dotnet.config](https://devblogs.microsoft.com/dotnet/dotnet-test-with-mtp)
 * Dependabot: enable auto-merge for minor updates
-* docker-outside-of-docker is it faster?
 * Simple ReadModel  
   * [Performance Boost Of CQRS Read Models](https://www.youtube.com/watch?v=AVBAAKa84cs) 
   * [Separate Read/Write Models with EF Core and CQRS](https://www.youtube.com/watch?v=iKDITShiZy4) 
