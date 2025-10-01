@@ -9,7 +9,7 @@
     <PackageVersion Include="AspNetCore.HealthChecks.Redis" Version="9.0.0" />
     <PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
     <PackageVersion Include="AspNetCore.HealthChecks.Uris" Version="9.0.0" />
-    <PackageVersion Include="Bogus" Version="35.6.3" />
+    <PackageVersion Include="Bogus" Version="35.6.4" />
     <PackageVersion Include="Dapper" Version="2.1.66" />
     <PackageVersion Include="EfCore.NamingConventions" Version="9.0.0" />
     <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
