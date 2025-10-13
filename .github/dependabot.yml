@@ -1,14 +1,17 @@
 version: 2
-updates:
-  - package-ecosystem: "nuget"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "wednesday"
-      time: "12:30"
+# updates:
+# Nuget packages
+# disabled: not needed currently
+#   - package-ecosystem: "nuget"
+#     directory: "/"
+#     schedule:
+#       interval: "weekly"
+#       day: "wednesday"
+#       time: "12:30"
 
   # https://devblogs.microsoft.com/dotnet/using-dependabot-to-manage-dotnet-sdk-updates/
   # disabled: needs a global.json
+  # Dotnet SDK
   # - package-ecosystem: "dotnet-sdk"
   #   directory: "/"
   #   schedule:
