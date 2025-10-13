@@ -1,5 +1,6 @@
 version: 2
-# updates:
+updates:
+
 # Nuget packages
 # disabled: not needed currently
 #   - package-ecosystem: "nuget"
